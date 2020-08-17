@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - GLib/scope.h</title>
+	<link rel="stylesheet" type="text/css" href="../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../index.html">TopLevel</a> - <a href="index.html">GLib</a> - <span>scope.h</span>
+					<span>(source / <a href="scope.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">24</td>
+				<td class="coverageValue">24</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">7</td>
+				<td class="coverageValue">7</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="d">#include·&quot;fwd.h&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span><span class="d">#include·&lt;chrono&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span><span class="d">#include·&lt;string&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span><span class="d">#include·&lt;utility&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span><span class="k">class</span><span class="w">·</span>Scope</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span><span class="w"> → </span><span class="k">using</span><span class="w">·</span>TimePoint<span class="w">·</span>=<span class="w">·</span>std::chrono::high_resolution_clock::time_point;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> → </span>GLib::Flog::Level<span class="w">·</span>level;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span><span class="w"> → </span>std::<span class="t">string</span><span class="w">·</span>prefix;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[15]</span><span><span class="w"> → </span>std::<span class="t">string</span><span class="w">·</span>scopeText;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="w"> → </span>std::<span class="t">string</span><span class="w">·</span>stem;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> → </span>TimePoint<span class="w">·</span>start;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[18]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[19]</span><span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="20"><span class="line">[20]</span></a><span><span class="w"> → </span>Scope(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>prefix,<span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>scope,<span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>stem)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  → </span>:<span class="w">·</span>level(level)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  → </span>,<span class="w">·</span>prefix(std::move(prefix))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[23]</span><span><span class="w"> →  → </span>,<span class="w">·</span>scopeText(std::move(scope))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[24]</span><span><span class="w"> →  → </span>,<span class="w">·</span>stem(std::move(stem))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> →  → </span>,<span class="w">·</span>start(std::chrono::high_resolution_clock::now())</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[27]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="28"><span class="line">[28]</span></a><span><span class="w"> → </span>GLib::Flog::Level<span class="w">·</span>Level()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[29]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>level;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[32]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="33"><span class="line">[33]</span></a><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">··</span>&amp;<span class="w">·</span>Prefix()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>prefix;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="38"><span class="line">[38]</span></a><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>ScopeText()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[39]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[40]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>scopeText;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[42]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="43"><span class="line">[43]</span></a><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">··</span>&amp;<span class="w">·</span>Stem()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[44]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>stem;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[47]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="48"><span class="line">[48]</span></a><span><span class="w"> → </span><span class="k">auto</span><span class="w">·</span>Duration()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[49]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[50]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>std::chrono::high_resolution_clock::now()<span class="w">·</span>-<span class="w">·</span>start;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[51]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[52]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[53]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="54"><span class="line">[54]</span></a><span><span class="w"> → </span><span class="k">auto</span><span class="w">·</span>Duration()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[55]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[56]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>std::chrono::duration_cast&lt;T&gt;(Duration());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[57]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[58]</span><span>};</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:14.084507%"></div>
+		<div class="" style="height:28.169014%"></div>
+		<div class="cov" style="height:8.450705%"></div>
+		<div class="" style="height:2.816901%"></div>
+		<div class="cov" style="height:4.225352%"></div>
+		<div class="" style="height:2.816901%"></div>
+		<div class="cov" style="height:4.225352%"></div>
+		<div class="" style="height:2.816901%"></div>
+		<div class="cov" style="height:4.225352%"></div>
+		<div class="" style="height:2.816901%"></div>
+		<div class="cov" style="height:4.225352%"></div>
+		<div class="" style="height:2.816901%"></div>
+		<div class="cov" style="height:4.225352%"></div>
+		<div class="" style="height:4.225352%"></div>
+		<div class="cov" style="height:4.225352%"></div>
+		<div class="" style="height:1.408451%"></div>
+		<div class="" style="height:4.225352%"></div>
+	</div>
+
+</body>
+</html>

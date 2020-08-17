@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/flogging.h</title>
+	<link rel="stylesheet" type="text/css" href="../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../index.html">TopLevel</a> - <a href="index.html">include/GLib</a> - <span>flogging.h</span>
+					<span>(source / <a href="flogging.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">31</td>
+				<td class="coverageValue">32</td>
+				<td class="green coverageValue">96&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">12</td>
+				<td class="coverageValue">12</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  1]</span><span><span class="d">#ifndef·FLOGGING_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  2]</span><span><span class="d">#define·FLOGGING_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  3]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  4]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/formatter.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  5]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/genericoutstream.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  6]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  7]</span><span><span class="d">#include·&lt;string&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  8]</span><span><span class="d">#include·&lt;utility&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  9]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 10]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Flog</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 11]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 12]</span><span><span class="w"> → </span><span class="k">namespace</span><span class="w">·</span>Detail</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 13]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 14]</span><span><span class="w"> →  → </span><span class="k">extern</span><span class="w">·</span><span class="s">&quot;C&quot;</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>Write(<span class="k">char</span><span class="w">·</span>c);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 15]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 16]</span><span><span class="w"> →  → </span><span class="c">//·perf·test</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 17]</span><span><span class="w"> →  → </span><span class="k">class</span><span class="w">·</span>Buffer<span class="w">·</span>:<span class="w">·</span><span class="k">public</span><span class="w">·</span>std::basic_streambuf&lt;<span class="k">char</span>&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 18]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 19]</span><span><span class="w"> →  → </span><span class="k">protected</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="20"><span class="line">[ 20]</span></a><span><span class="w"> →  →  → </span>int_type<span class="w">·</span>overflow(int_type<span class="w">·</span>c)<span class="w">·</span><span class="k">override</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 21]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 22]</span><span><span class="w"> →  →  →  → </span><span class="k">if</span><span class="w">·</span>(traits_type::eq_int_type(c,<span class="w">·</span>traits_type::eof()))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 23]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[ 24]</span><span><span class="w"> →  →  →  →  → </span><span class="k">return</span><span class="w">·</span>traits_type::not_eof(c);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 25]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 26]</span><span><span class="w"> →  →  →  → </span>Write(traits_type::to_char_type(c));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 27]</span><span><span class="w"> →  →  →  → </span><span class="k">return</span><span class="w">·</span>c;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 28]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 29]</span><span><span class="w"> →  → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 30]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>StreamType<span class="w">·</span>=<span class="w">·</span>Util::GenericOutStream&lt;<span class="k">char</span>,<span class="w">·</span>Buffer&gt;;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 31]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="32"><span class="line">[ 32]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>Stream()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 33]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 34]</span><span><span class="w"> →  →  → </span><span class="k">static</span><span class="w">·</span>StreamType<span class="w">·</span>stream;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 35]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>stream.Stream();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 36]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 37]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 38]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 39]</span><span><span class="w"> → </span><span class="k">enum</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>Level<span class="w">·</span>:<span class="w">·</span><span class="k">unsigned</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 40]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 41]</span><span><span class="w"> →  → </span>Spam,<span class="w">·</span>Debug,<span class="w">·</span>Info,<span class="w">·</span>Warning,<span class="w">·</span>Error,<span class="w">·</span>Critical,<span class="w">·</span>Fatal</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 42]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 43]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 44]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>LogManager;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 45]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>ScopeLog;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 46]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 47]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Log</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 48]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 49]</span><span><span class="w"> →  → </span>std::<span class="t">string</span><span class="w">·</span><span class="k">const</span><span class="w">·</span>name;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 50]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 51]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 52]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Spam(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Spam,<span class="w">·</span>message);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 53]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Spam(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Spam,<span class="w">·</span>message.c_str());<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 54]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span>...<span class="w">·</span>Ts&gt;<span class="w">·</span><span class="k">void</span><span class="w">·</span>Spam(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>format,<span class="w">·</span>Ts&amp;&amp;...<span class="w">·</span>ts)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Spam,<span class="w">·</span>format,<span class="w">·</span>std::forward&lt;Ts&gt;(ts)...);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 55]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 56]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Debug(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Debug,<span class="w">·</span>message);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 57]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Debug(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Debug,<span class="w">·</span>message.c_str());<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 58]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span>...<span class="w">·</span>Ts&gt;<span class="w">·</span><span class="k">void</span><span class="w">·</span>Debug(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>format,<span class="w">·</span>Ts&amp;&amp;...<span class="w">·</span>ts)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Debug,<span class="w">·</span>format,<span class="w">·</span>std::forward&lt;Ts&gt;(ts)...);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="59"><span class="line">[ 59]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="60"><span class="line">[ 60]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Info(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Info,<span class="w">·</span>message);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="61"><span class="line">[ 61]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Info(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Info,<span class="w">·</span>message.c_str());<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 62]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span>...<span class="w">·</span>Ts&gt;<span class="w">·</span><span class="k">void</span><span class="w">·</span>Info(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>format,<span class="w">·</span>Ts&amp;&amp;...<span class="w">·</span>ts)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Info,<span class="w">·</span>format,<span class="w">·</span>std::forward&lt;Ts&gt;(ts)...);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 63]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 64]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Warning(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Warning,<span class="w">·</span>message);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 65]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Warning(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Warning,<span class="w">·</span>message.c_str());<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 66]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span>...<span class="w">·</span>Ts&gt;<span class="w">·</span><span class="k">void</span><span class="w">·</span>Warning(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>format,<span class="w">·</span>Ts&amp;&amp;...<span class="w">·</span>ts)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Warning,<span class="w">·</span>format,<span class="w">·</span>std::forward&lt;Ts&gt;(ts)...);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="67"><span class="line">[ 67]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 68]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Error(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Error,<span class="w">·</span>message);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 69]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Error(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Error,<span class="w">·</span>message.c_str());<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 70]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span>...<span class="w">·</span>Ts&gt;<span class="w">·</span><span class="k">void</span><span class="w">·</span>Error(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>format,<span class="w">·</span>Ts&amp;&amp;...<span class="w">·</span>ts)<span class="w">·</span><span class="k">const</span><span class="w">·</span>{<span class="w">·</span>Write(Level::Error,<span class="w">·</span>format,<span class="w">·</span>std::forward&lt;Ts&gt;(ts)...);<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 71]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 72]</span><span><span class="w"> →  → </span><span class="k">friend</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>LogManager;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 73]</span><span><span class="w"> →  → </span><span class="k">friend</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>ScopeLog;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 74]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="75"><span class="line">[ 75]</span></a><span><span class="w"> → </span><span class="k">private</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 76]</span><span><span class="w"> →  → </span>Log(std::<span class="t">string</span><span class="w">·</span>name)<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>:<span class="w">·</span>name(std::move(name))<span class="w">·</span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 77]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 78]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Write(Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)<span class="w">·</span><span class="k">const</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 79]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>ScopeStart(Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>scope,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>stem)<span class="w">·</span><span class="k">const</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 80]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>ScopeEnd()<span class="w">·</span><span class="k">const</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 81]</span><span><span class="w"> →  → </span><span class="c">//std::ostream·&amp;·Stream()·const;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 82]</span><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>CommitStream(Level<span class="w">·</span>level)<span class="w">·</span><span class="k">const</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 83]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="84"><span class="line">[ 84]</span></a><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span>...<span class="w">·</span>Ts&gt;<span class="w">·</span><span class="k">void</span><span class="w">·</span>Write(Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>format,<span class="w">·</span>Ts...<span class="w">·</span>ts)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 85]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 86]</span><span><span class="w"> →  →  → </span>Formatter::Format(Detail::Stream(),<span class="w">·</span>format,<span class="w">·</span>std::forward&lt;Ts&gt;(ts)...);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 87]</span><span><span class="w"> →  →  → </span>CommitStream(level);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 88]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 89]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 90]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 91]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>ScopeLog</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 92]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 93]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>Log<span class="w">·</span>&amp;<span class="w">·</span>log;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 94]</span><span><span class="w"> →  → </span>Level<span class="w">·</span>level;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 95]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>scope;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 96]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>stem;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 97]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 98]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 99]</span><span><span class="w"> →  → </span>ScopeLog(<span class="k">const</span><span class="w">·</span>ScopeLog&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[100]</span><span><span class="w"> →  → </span>ScopeLog&amp;<span class="w">·</span><span class="k">operator</span>=(<span class="k">const</span><span class="w">·</span>ScopeLog&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[101]</span><span><span class="w"> →  → </span>ScopeLog(ScopeLog&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">default</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[102]</span><span><span class="w"> →  → </span>ScopeLog&amp;<span class="w">·</span><span class="k">operator</span>=(ScopeLog&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[103]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="104"><span class="line">[104]</span></a><span><span class="w"> →  → </span>ScopeLog(<span class="k">const</span><span class="w">·</span>Log<span class="w">·</span>&amp;<span class="w">·</span>log,<span class="w">·</span>Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>scope,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>stem<span class="w">·</span>=<span class="w">·</span><span class="s">&quot;==&quot;</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[105]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>log(log),<span class="w">·</span>level(level),<span class="w">·</span>scope(scope),<span class="w">·</span>stem(stem)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[106]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[107]</span><span><span class="w"> →  →  → </span>log.ScopeStart(<span class="k">this</span>-&gt;level,<span class="w">·</span><span class="k">this</span>-&gt;scope,<span class="w">·</span><span class="k">this</span>-&gt;stem);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[108]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[109]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="110"><span class="line">[110]</span></a><span><span class="w"> →  → </span>~ScopeLog()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[111]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[112]</span><span><span class="w"> →  →  → </span>log.ScopeEnd();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[113]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[114]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[115]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[116]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>LogManager</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[117]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[118]</span><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>Unmangle(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>name);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[119]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[120]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[121]</span><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>Level<span class="w">·</span>SetLevel(Level<span class="w">·</span>level);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[122]</span><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span><span class="t">size_t</span><span class="w">·</span>SetMaxFileSize(<span class="t">size_t</span><span class="w">·</span>size);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[123]</span><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>SetThreadName(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>name);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[124]</span><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>GLib::Compat::filesystem::path<span class="w">·</span>GetLogPath();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[125]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="126"><span class="line">[126]</span></a><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>Log<span class="w">·</span>GetLog(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>name)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[127]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[128]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>Log(name);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[129]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[130]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[131]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="132"><span class="line">[132]</span></a><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>Log<span class="w">·</span>GetLog()<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[133]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[134]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>Log(Unmangle(<span class="k">typeid</span>(T).name()));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[135]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[136]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[137]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[138]</span><span><span class="d">#endif·</span><span class="c">//·FLOGGING_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[139]</span><span></span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:6.578947%"></div>
+		<div class="" style="height:13.157894%"></div>
+		<div class="cov" style="height:1.315789%"></div>
+		<div class="" style="height:0.657895%"></div>
+		<div class="ncov" style="height:0.657895%"></div>
+		<div class="" style="height:0.657895%"></div>
+		<div class="cov" style="height:1.973684%"></div>
+		<div class="" style="height:2.631579%"></div>
+		<div class="cov" style="height:2.631579%"></div>
+		<div class="" style="height:15.131578%"></div>
+		<div class="cov" style="height:1.973684%"></div>
+		<div class="" style="height:3.289474%"></div>
+		<div class="cov" style="height:0.657895%"></div>
+		<div class="" style="height:4.605263%"></div>
+		<div class="cov" style="height:0.657895%"></div>
+		<div class="" style="height:5.263158%"></div>
+		<div class="cov" style="height:2.631579%"></div>
+		<div class="" style="height:10.526316%"></div>
+		<div class="cov" style="height:2.631579%"></div>
+		<div class="" style="height:1.315789%"></div>
+		<div class="cov" style="height:1.973684%"></div>
+		<div class="" style="height:8.552631%"></div>
+		<div class="cov" style="height:1.973684%"></div>
+		<div class="" style="height:1.973684%"></div>
+		<div class="cov" style="height:1.973684%"></div>
+		<div class="" style="height:2.631579%"></div>
+		<div class="" style="height:1.973684%"></div>
+	</div>
+
+</body>
+</html>

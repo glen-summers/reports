@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Win/Variant.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Win</a> - <span>Variant.h</span>
+					<span>(source / <a href="Variant.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">59</td>
+				<td class="coverageValue">60</td>
+				<td class="green coverageValue">98&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">18</td>
+				<td class="coverageValue">18</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/ComErrorCheck.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  4]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  5]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Win</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  6]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  7]</span><span><span class="w"> → </span><span class="k">namespace</span><span class="w">·</span>Detail</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  8]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="9"><span class="line">[  9]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>VARIANT<span class="w">·</span>Create()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 10]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 11]</span><span><span class="w"> →  →  → </span>VARIANT<span class="w">·</span>v;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 12]</span><span><span class="w"> →  →  → </span>::VariantInit(&amp;v);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 13]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>v;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 14]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="15"><span class="line">[ 15]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="16"><span class="line">[ 16]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>VARTYPE<span class="w">·</span>Vt(<span class="k">const</span><span class="w">·</span>VARIANT<span class="w">·</span>&amp;<span class="w">·</span>v)<span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>v.vt;<span class="w">·</span>}<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-type-union-access)·legacy·code</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 17]</span><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>VARTYPE<span class="w">·</span>&amp;<span class="w">·</span>Vt(VARIANT<span class="w">·</span>&amp;<span class="w">·</span>v)<span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>v.vt;<span class="w">·</span>}<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-type-union-access)·legacy·code</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="18"><span class="line">[ 18]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 19]</span><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>BSTR<span class="w">·</span>&amp;<span class="w">·</span>Bstr(VARIANT<span class="w">·</span>&amp;<span class="w">·</span>v)<span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>v.bstrVal;<span class="w">·</span>}<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-type-union-access)·legacy·code</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 20]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="21"><span class="line">[ 21]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>VARIANT<span class="w">·</span>Create(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 22]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 23]</span><span><span class="w"> →  →  → </span><span class="k">auto</span><span class="w">·</span>bstr<span class="w">·</span>=<span class="w">·</span>::SysAllocString(Cvt::a2w(value).c_str());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 24]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(bstr<span class="w">·</span>==<span class="w">·</span><span class="k">nullptr</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 25]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[ 26]</span><span><span class="w"> →  →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(<span class="s">&quot;SysAllocString&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 27]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 28]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 29]</span><span><span class="w"> →  →  → </span>VARIANT<span class="w">·</span>v;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 30]</span><span><span class="w"> →  →  → </span>::VariantInit(&amp;v);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 31]</span><span><span class="w"> →  →  → </span>Vt(v)<span class="w">·</span>=<span class="w">·</span>VT_BSTR;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 32]</span><span><span class="w"> →  →  → </span>Bstr(v)<span class="w">·</span>=<span class="w">·</span>::SysAllocString(Cvt::a2w(value).c_str());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 33]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>v;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 34]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 35]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="36"><span class="line">[ 36]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>VARIANT<span class="w">·</span>Copy(<span class="k">const</span><span class="w">·</span>VARIANT<span class="w">·</span>&amp;<span class="w">·</span>v)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 37]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 38]</span><span><span class="w"> →  →  → </span>VARIANT<span class="w">·</span>copy;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 39]</span><span><span class="w"> →  →  → </span>::VariantInit(&amp;copy);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 40]</span><span><span class="w"> →  →  → </span>GLib::Win::CheckHr(::VariantCopy(&amp;copy,<span class="w">·</span>&amp;v),<span class="w">·</span><span class="s">&quot;VariantCopy&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 41]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>copy;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 42]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 43]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="44"><span class="line">[ 44]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>VARIANT<span class="w">·</span>Move(VARIANT<span class="w">·</span>&amp;<span class="w">·</span>other)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 45]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 46]</span><span><span class="w"> →  →  → </span>VARIANT<span class="w">·</span>v{other};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 47]</span><span><span class="w"> →  →  → </span>::VariantInit(&amp;other);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 48]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>v;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 49]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 50]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 51]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 52]</span><span><span class="w"> → </span><span class="c">//·get\set·a·C++·variant?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 53]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Variant</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 54]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 55]</span><span><span class="w"> →  → </span>VARIANT<span class="w">·</span>v{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 56]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="57"><span class="line">[ 57]</span></a><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 58]</span><span><span class="w"> →  → </span>Variant()<span class="w">·</span>:<span class="w">·</span>v{Detail::Create()}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 59]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="60"><span class="line">[ 60]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 61]</span><span><span class="w"> →  → </span>Variant(<span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>value)<span class="w">·</span>:<span class="w">·</span>v{Detail::Create(value)}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 62]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="63"><span class="line">[ 63]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 64]</span><span><span class="w"> →  → </span>Variant(<span class="k">const</span><span class="w">·</span>Variant<span class="w">·</span>&amp;<span class="w">·</span>other)<span class="w">·</span>:<span class="w">·</span>v{Detail::Copy(other.v)}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 65]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="66"><span class="line">[ 66]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 67]</span><span><span class="w"> →  → </span>Variant(Variant<span class="w">·</span>&amp;&amp;<span class="w">·</span>other)<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>:<span class="w">·</span>v{Detail::Move(other.v)}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 68]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 69]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="70"><span class="line">[ 70]</span></a><span><span class="w"> →  → </span>~Variant()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 71]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 72]</span><span><span class="w"> →  →  → </span>GLib::Win::WarnHr(::VariantClear(&amp;v),<span class="w">·</span><span class="s">&quot;VariantClear&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 73]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 74]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="75"><span class="line">[ 75]</span></a><span><span class="w"> →  → </span>VARTYPE<span class="w">·</span>Type()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 76]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 77]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>Detail::Vt(v);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 78]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 79]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="80"><span class="line">[ 80]</span></a><span><span class="w"> →  → </span>std::<span class="t">string</span><span class="w">·</span>ToString()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 81]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 82]</span><span><span class="w"> →  →  → </span>VARIANT<span class="w">·</span>tmp{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 83]</span><span><span class="w"> →  →  → </span>GLib::Win::CheckHr(::VariantChangeType(&amp;tmp,<span class="w">·</span>&amp;v,<span class="w">·</span>0,<span class="w">·</span>VT_BSTR),<span class="w">·</span><span class="s">&quot;VariantChangeType&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 84]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>Cvt::w2a(Detail::Bstr(tmp));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 85]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 86]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="87"><span class="line">[ 87]</span></a><span><span class="w"> →  → </span>Variant<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span><span class="w">·</span>=<span class="w">·</span>(<span class="k">const</span><span class="w">·</span>Variant<span class="w">·</span>&amp;<span class="w">·</span>other)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 88]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 89]</span><span><span class="w"> →  →  → </span>GLib::Win::CheckHr(::VariantCopy(&amp;v,<span class="w">·</span>&amp;other.v),<span class="w">·</span><span class="s">&quot;VariantCopy&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 90]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 91]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 92]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="93"><span class="line">[ 93]</span></a><span><span class="w"> →  → </span>Variant<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span><span class="w">·</span>=<span class="w">·</span>(Variant<span class="w">·</span>&amp;&amp;<span class="w">·</span>other)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 94]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 95]</span><span><span class="w"> →  →  → </span>v<span class="w">·</span>=<span class="w">·</span>other.v;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 96]</span><span><span class="w"> →  →  → </span>::VariantInit(&amp;other.v);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 97]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 98]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 99]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="100"><span class="line">[100]</span></a><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span><span class="w">·</span>==<span class="w">·</span>(<span class="k">const</span><span class="w">·</span>Variant<span class="w">·</span>&amp;<span class="w">·</span>other)<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[101]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[102]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>::VarCmp(<span class="k">const_cast</span>&lt;VARIANT<span class="w">·</span>*&gt;(&amp;v),<span class="w">·</span><span class="k">const_cast</span>&lt;VARIANT<span class="w">·</span>*&gt;(&amp;other.v),<span class="w">·</span>0)<span class="w">·</span>==<span class="w">·</span>VARCMP_EQ;<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-type-const-cast)·no·const·api</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[103]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[104]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="105"><span class="line">[105]</span></a><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span><span class="w">·</span>!=<span class="w">·</span>(<span class="k">const</span><span class="w">·</span>Variant<span class="w">·</span>&amp;<span class="w">·</span>other)<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[106]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[107]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>!(*<span class="k">this</span><span class="w">·</span>==<span class="w">·</span>other);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[108]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[109]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[110]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:8.130081%"></div>
+		<div class="" style="height:7.317073%"></div>
+		<div class="cov" style="height:0.813008%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="cov" style="height:1.626016%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="cov" style="height:0.813008%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="ncov" style="height:0.813008%"></div>
+		<div class="" style="height:2.439024%"></div>
+		<div class="cov" style="height:4.065041%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:0.813008%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="cov" style="height:3.252033%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:4.065041%"></div>
+		<div class="" style="height:6.504065%"></div>
+		<div class="cov" style="height:1.626016%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="cov" style="height:1.626016%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="cov" style="height:1.626016%"></div>
+		<div class="" style="height:0.813008%"></div>
+		<div class="cov" style="height:1.626016%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:4.065041%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:3.252033%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:4.065041%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:1.626016%"></div>
+		<div class="" style="height:2.439024%"></div>
+	</div>
+
+</body>
+</html>

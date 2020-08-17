@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/stackorheap.h</title>
+	<link rel="stylesheet" type="text/css" href="../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../index.html">TopLevel</a> - <a href="index.html">include/GLib</a> - <span>stackorheap.h</span>
+					<span>(source / <a href="stackorheap.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">25</td>
+				<td class="coverageValue">25</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">8</td>
+				<td class="coverageValue">8</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#ifndef·STACK_OR_HEAP_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span><span class="d">#define·STACK_OR_HEAP_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span><span class="d">#include·&lt;array&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span><span class="d">#include·&lt;memory&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span><span class="d">#include·&lt;variant&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Util</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span><span class="w"> → </span><span class="c">//·?rework·as·MakeStackOrHeap&lt;size&gt;(actual)·-&gt;·actual·&lt;·size·?·Stack()·:·Heap()</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T,<span class="w">·</span><span class="t">size_t</span><span class="w">·</span>StackElementCount&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>StackOrHeap</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>Stack<span class="w">·</span>=<span class="w">·</span>std::<span class="t">array</span>&lt;T,<span class="w">·</span>StackElementCount&gt;;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[15]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>Heap<span class="w">·</span>=<span class="w">·</span>std::<span class="t">unique_ptr</span>&lt;T[]&gt;;<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[16]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> →  → </span><span class="t">size_t</span><span class="w">·</span>heapSize;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[18]</span><span><span class="w"> →  → </span>std::variant&lt;Stack,<span class="w">·</span>Heap&gt;<span class="w">·</span>storage;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[19]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="20"><span class="line">[20]</span></a><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  → </span>StackOrHeap()<span class="w">·</span>:<span class="w">·</span>heapSize{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[23]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[24]</span><span><span class="w"> →  → </span>StackOrHeap(<span class="k">const</span><span class="w">·</span>StackOrHeap<span class="w">·</span>&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> →  → </span>StackOrHeap<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>=(<span class="k">const</span><span class="w">·</span>StackOrHeap<span class="w">·</span>&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> →  → </span>StackOrHeap(StackOrHeap<span class="w">·</span>&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[27]</span><span><span class="w"> →  → </span>StackOrHeap<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>=(StackOrHeap<span class="w">·</span>&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> →  → </span>~StackOrHeap()<span class="w">·</span>=<span class="w">·</span><span class="k">default</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[29]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="30"><span class="line">[30]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>EnsureSize(<span class="t">size_t</span><span class="w">·</span>newElementCount)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[32]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>((newElementCount<span class="w">·</span>&gt;<span class="w">·</span>StackElementCount<span class="w">·</span>&amp;&amp;<span class="w">·</span>!HeapInUse())<span class="w">·</span>||<span class="w">·</span>(HeapInUse()<span class="w">·</span>&amp;&amp;<span class="w">·</span>newElementCount<span class="w">·</span>&gt;<span class="w">·</span>heapSize))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> →  →  →  → </span>AllocateHeap(newElementCount);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> →  →  → </span><span class="c">//·could·go·back·to·stack·if·(heapInUse·&amp;&amp;·newElementCount·&lt;=·StackElementCount)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[37]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[38]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="39"><span class="line">[39]</span></a><span><span class="w"> →  → </span><span class="t">size_t</span><span class="w">·</span>size()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[40]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>GetSize();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[42]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[43]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="44"><span class="line">[44]</span></a><span><span class="w"> →  → </span>T*<span class="w">·</span>Get()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>HeapInUse()<span class="w">·</span>?<span class="w">·</span>std::get&lt;1&gt;(storage).get()<span class="w">·</span>:<span class="w">·</span>std::get&lt;0&gt;(storage).data();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[48]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="49"><span class="line">[49]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>T*<span class="w">·</span>Get()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[50]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[51]</span><span><span class="w"> →  →  →  → </span><span class="k">return</span><span class="w">·</span>HeapInUse()<span class="w">·</span>?<span class="w">·</span>std::get&lt;1&gt;(storage).get()<span class="w">·</span>:<span class="w">·</span>std::get&lt;0&gt;(storage).data();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[52]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[53]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[54]</span><span><span class="w"> → </span><span class="k">private</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="55"><span class="line">[55]</span></a><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span>HeapInUse()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[56]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[57]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>storage.index()<span class="w">·</span>!=<span class="w">·</span>0;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[58]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[59]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="60"><span class="line">[60]</span></a><span><span class="w"> →  → </span><span class="t">size_t</span><span class="w">·</span>GetSize()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[61]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[62]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>HeapInUse()<span class="w">·</span>?<span class="w">·</span>heapSize<span class="w">·</span>:<span class="w">·</span>StackElementCount;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[63]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[64]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="65"><span class="line">[65]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>AllocateHeap(<span class="t">size_t</span><span class="w">·</span>size)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[66]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[67]</span><span><span class="w"> →  →  → </span>storage<span class="w">·</span>=<span class="w">·</span>std::make_unique&lt;T[]&gt;(size);<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-avoid-c-arrays,hicpp-avoid-c-arrays,modernize-avoid-c-arrays)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[68]</span><span><span class="w"> →  →  → </span>heapSize<span class="w">·</span>=<span class="w">·</span>size;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[69]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[70]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[71]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[72]</span><span><span class="w"> → </span><span class="k">constexpr</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>DefaultStackReserveSize<span class="w">·</span>=<span class="w">·</span>256;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[73]</span><span><span class="w"> → </span><span class="k">using</span><span class="w">·</span>CharBuffer<span class="w">·</span>=<span class="w">·</span>Util::StackOrHeap&lt;<span class="k">char</span>,<span class="w">·</span>DefaultStackReserveSize&gt;;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[74]</span><span><span class="w"> → </span><span class="k">using</span><span class="w">·</span>WideCharBuffer<span class="w">·</span>=<span class="w">·</span>Util::StackOrHeap&lt;<span class="k">wchar_t</span>,<span class="w">·</span>DefaultStackReserveSize&gt;;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[75]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[76]</span><span><span class="d">#endif·</span><span class="c">//·STACK_OR_HEAP_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[77]</span><span></span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:11.111112%"></div>
+		<div class="" style="height:22.222223%"></div>
+		<div class="cov" style="height:2.222222%"></div>
+		<div class="" style="height:8.888889%"></div>
+		<div class="cov" style="height:2.222222%"></div>
+		<div class="" style="height:1.111111%"></div>
+		<div class="cov" style="height:1.111111%"></div>
+		<div class="" style="height:2.222222%"></div>
+		<div class="cov" style="height:1.111111%"></div>
+		<div class="" style="height:2.222222%"></div>
+		<div class="cov" style="height:3.333333%"></div>
+		<div class="" style="height:2.222222%"></div>
+		<div class="cov" style="height:3.333333%"></div>
+		<div class="" style="height:2.222222%"></div>
+		<div class="cov" style="height:3.333333%"></div>
+		<div class="" style="height:3.333333%"></div>
+		<div class="cov" style="height:3.333333%"></div>
+		<div class="" style="height:2.222222%"></div>
+		<div class="cov" style="height:3.333333%"></div>
+		<div class="" style="height:2.222222%"></div>
+		<div class="cov" style="height:4.444445%"></div>
+		<div class="" style="height:8.888889%"></div>
+		<div class="" style="height:3.333333%"></div>
+	</div>
+
+</body>
+</html>

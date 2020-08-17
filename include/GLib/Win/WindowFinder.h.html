@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Win/WindowFinder.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Win</a> - <span>WindowFinder.h</span>
+					<span>(source / <a href="WindowFinder.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">32</td>
+				<td class="coverageValue">33</td>
+				<td class="green coverageValue">96&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">5</td>
+				<td class="coverageValue">6</td>
+				<td class="amber coverageValue">83&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/ErrorCheck.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/stackorheap.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span><span class="d">#include·&lt;functional&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Win</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span><span class="w"> → </span><span class="k">namespace</span><span class="w">·</span>Detail</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="12"><span class="line">[12]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>std::wstring<span class="w">·</span>GetWindowText(HWND<span class="w">·</span>hWnd)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[14]</span><span><span class="w"> →  →  → </span>GLib::Util::WideCharBuffer<span class="w">·</span>s;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[15]</span><span><span class="w"> →  →  → </span>::SetLastError(ERROR_SUCCESS);<span class="w">·</span><span class="c">//·GetWindowTextLength·does·not·set·last·error·on·success</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="w"> →  →  → </span><span class="t">size_t</span><span class="w">·</span>lengthWithoutTerminator<span class="w">·</span>=<span class="w">·</span>::GetWindowTextLengthW(hWnd);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> →  →  → </span>Util::AssertTrue(lengthWithoutTerminator<span class="w">·</span>!=<span class="w">·</span>0<span class="w">·</span>||<span class="w">·</span>::GetLastError()<span class="w">·</span>==<span class="w">·</span>0,<span class="w">·</span><span class="s">&quot;GetWindowTextLengthW&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[18]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(lengthWithoutTerminator<span class="w">·</span>!=<span class="w">·</span>0)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[19]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[20]</span><span><span class="w"> →  →  →  → </span>s.EnsureSize(lengthWithoutTerminator<span class="w">·</span>+<span class="w">·</span>1);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  →  →  → </span>lengthWithoutTerminator<span class="w">·</span>=<span class="w">·</span>::GetWindowTextW(hWnd,<span class="w">·</span>s.Get(),<span class="w">·</span><span class="k">static_cast</span>&lt;<span class="k">int</span>&gt;(s.size()));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  →  →  → </span>Util::AssertTrue(lengthWithoutTerminator<span class="w">·</span>!=<span class="w">·</span>0<span class="w">·</span>||<span class="w">·</span>::GetLastError()<span class="w">·</span>==<span class="w">·</span>0,<span class="w">·</span><span class="s">&quot;GetWindowTextW&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[23]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[24]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>s.Get();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[27]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>WindowFinder</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[29]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>WindowEnumerator<span class="w">·</span>=<span class="w">·</span>std::function&lt;<span class="k">bool</span>(HWND)&gt;;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[31]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="32"><span class="line">[32]</span></a><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>BOOL<span class="w">·</span>CALLBACK<span class="w">·</span>EnumWindowsCallback(HWND<span class="w">·</span>handle,<span class="w">·</span>LPARAM<span class="w">·</span>param)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> →  →  → </span><span class="c">//·todo·setlasterror·when·return·false</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>(*<span class="k">reinterpret_cast</span>&lt;<span class="k">const</span><span class="w">·</span>WindowEnumerator*&gt;(param))(handle)<span class="w">·</span>?<span class="w">·</span>TRUE<span class="w">·</span>:<span class="w">·</span>FALSE;<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)·required</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[38]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="39"><span class="line">[39]</span></a><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>HWND<span class="w">·</span>Find(DWORD<span class="w">·</span>pid,<span class="w">·</span><span class="k">const</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>&amp;<span class="w">·</span>windowText)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[40]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> →  →  → </span>HDESK<span class="w">·</span>desktop<span class="w">·</span>=<span class="w">·</span>::GetThreadDesktop(::GetCurrentThreadId());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[42]</span><span><span class="w"> →  →  → </span>Util::AssertTrue(desktop<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span>,<span class="w">·</span><span class="s">&quot;GetThreadDesktop&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[43]</span><span><span class="w"> →  →  → </span><span class="k">auto</span><span class="w">·</span>wideWindowText<span class="w">·</span>=<span class="w">·</span>Cvt::a2w(windowText);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[44]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> →  →  → </span>HWND<span class="w">·</span>ret{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="46"><span class="line">[46]</span></a><span><span class="w"> →  →  → </span>WindowEnumerator<span class="w">·</span>func<span class="w">·</span>=<span class="w">·</span>[&amp;](HWND<span class="w">·</span>wnd)<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>-&gt;<span class="w">·</span><span class="k">bool</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[48]</span><span><span class="w"> →  →  →  → </span>DWORD<span class="w">·</span>windowPid;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[49]</span><span><span class="w"> →  →  →  → </span>::GetWindowThreadProcessId(wnd,<span class="w">·</span>&amp;windowPid);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[50]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[51]</span><span><span class="w"> →  →  →  → </span><span class="k">try</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[52]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[53]</span><span><span class="w"> →  →  →  →  → </span><span class="k">auto</span><span class="w">·</span>wt<span class="w">·</span>=<span class="w">·</span>Detail::GetWindowText(wnd);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[54]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(windowPid<span class="w">·</span>==<span class="w">·</span>pid<span class="w">·</span>&amp;&amp;<span class="w">·</span>wt<span class="w">·</span>==<span class="w">·</span>wideWindowText)<span class="w">·</span><span class="c">//·duplicate·names?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[55]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[56]</span><span><span class="w"> →  →  →  →  →  → </span>ret<span class="w">·</span>=<span class="w">·</span>wnd;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[57]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[58]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="59"><span class="line">[59]</span></a><span><span class="w"> →  →  →  → </span><span class="k">catch</span>(<span class="k">const</span><span class="w">·</span>std::exception<span class="w">·</span>&amp;)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[60]</span><span><span class="w"> →  →  →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="61"><span class="line">[61]</span></a><span><span class="w"> →  →  →  → </span><span class="k">return</span><span class="w">·</span><span class="k">true</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[62]</span><span><span class="w"> →  →  → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[63]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[64]</span><span><span class="w"> →  →  → </span>BOOL<span class="w">·</span>result<span class="w">·</span>=<span class="w">·</span>::EnumDesktopWindows(desktop,<span class="w">·</span>EnumWindowsCallback,<span class="w">·</span><span class="k">reinterpret_cast</span>&lt;LPARAM&gt;(&amp;func));<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[65]</span><span><span class="w"> →  →  → </span>Util::AssertTrue(result,<span class="w">·</span><span class="s">&quot;EnumDesktopWindows&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[66]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>ret;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[67]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[68]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[69]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:12.195122%"></div>
+		<div class="" style="height:14.634147%"></div>
+		<div class="cov" style="height:7.317073%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:3.658537%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:8.536586%"></div>
+		<div class="cov" style="height:1.219512%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:3.658537%"></div>
+		<div class="cov" style="height:4.878049%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:3.658537%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:1.219512%"></div>
+		<div class="" style="height:3.658537%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:1.219512%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:1.219512%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="ncov" style="height:1.219512%"></div>
+		<div class="cov" style="height:2.439024%"></div>
+		<div class="" style="height:1.219512%"></div>
+		<div class="cov" style="height:4.878049%"></div>
+		<div class="" style="height:2.439024%"></div>
+		<div class="" style="height:3.658537%"></div>
+	</div>
+
+</body>
+</html>

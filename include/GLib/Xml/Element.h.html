@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Xml/Element.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Xml</a> - <span>Element.h</span>
+					<span>(source / <a href="Element.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">32</td>
+				<td class="coverageValue">32</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">9</td>
+				<td class="coverageValue">9</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Xml</span><span class="d">/Attributes.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Xml</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span><span class="w"> → </span><span class="k">enum</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>ElementType<span class="w">·</span>:<span class="w">·</span><span class="k">int</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span><span class="w"> →  → </span>Open,<span class="w">·</span>Empty,<span class="w">·</span>Close,<span class="w">·</span>Text,<span class="w">·</span>Comment</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Element</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span><span class="w"> →  → </span><span class="k">friend</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>Iterator;<span class="w">·</span><span class="c">//·avoid</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[15]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="w"> →  → </span>std::<span class="t">string_view</span><span class="w">·</span>qName;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> →  → </span>std::<span class="t">string_view</span><span class="w">·</span>name;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[18]</span><span><span class="w"> →  → </span>std::<span class="t">string_view</span><span class="w">·</span>nameSpace;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="19"><span class="line">[19]</span></a><span><span class="w"> →  → </span>std::<span class="t">string_view</span><span class="w">·</span>outerXml;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[20]</span><span><span class="w"> →  → </span>ElementType<span class="w">·</span>type<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  → </span>GLib::Xml::Attributes<span class="w">·</span>attributes;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  → </span><span class="t">size_t</span><span class="w">·</span>depth<span class="w">·</span>{};<span class="w">·</span><span class="c">//·move/remove?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[23]</span><span><span class="w"> →  → </span>std::<span class="t">string_view</span><span class="w">·</span>text;<span class="w">·</span><span class="c">//·value?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[24]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> →  → </span>Element(std::<span class="t">string_view</span><span class="w">·</span>qName,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>name,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>nameSpace,<span class="w">·</span>ElementType<span class="w">·</span>type,<span class="w">·</span>Attributes<span class="w">·</span>attributes={})</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[27]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>qName(qName),<span class="w">·</span>name(name),<span class="w">·</span>nameSpace(nameSpace),<span class="w">·</span>type(type),<span class="w">·</span>attributes(attributes)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[29]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> →  → </span>Element(std::<span class="t">string_view</span><span class="w">·</span>name,<span class="w">·</span>ElementType<span class="w">·</span>type,<span class="w">·</span>Attributes<span class="w">·</span>attributes={})</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>qName(name),<span class="w">·</span>name(name),<span class="w">·</span>type(type),<span class="w">·</span>attributes(attributes)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[32]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[33]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> →  → </span>Element(ElementType<span class="w">·</span>type,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>text)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>type(type),<span class="w">·</span>text(text)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[38]</span><span><span class="w"> →  → </span>Element()<span class="w">·</span>=<span class="w">·</span><span class="k">default</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[39]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="40"><span class="line">[40]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>QName()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[42]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>qName;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[43]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[44]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="45"><span class="line">[45]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>Name()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>name;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[48]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[49]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="50"><span class="line">[50]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>NameSpace()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[51]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[52]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>nameSpace;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[53]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[54]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="55"><span class="line">[55]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>OuterXml()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[56]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[57]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>outerXml;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[58]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[59]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="60"><span class="line">[60]</span></a><span><span class="w"> →  → </span>ElementType<span class="w">·</span>Type()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[61]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[62]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>type;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[63]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[64]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="65"><span class="line">[65]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>GLib::Xml::Attributes<span class="w">·</span>&amp;<span class="w">·</span>Attributes()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[66]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[67]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>attributes;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[68]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[69]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="70"><span class="line">[70]</span></a><span><span class="w"> →  → </span><span class="t">size_t</span><span class="w">·</span>Depth()<span class="w">·</span><span class="k">const</span><span class="w">··</span><span class="c">//·move/remove?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[71]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[72]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>depth;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[73]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[74]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[75]</span><span><span class="w"> →  → </span><span class="c">//·haxor</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="76"><span class="line">[76]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>Text()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[77]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[78]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>text;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[79]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[80]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[81]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:10.638298%"></div>
+		<div class="" style="height:20.212767%"></div>
+		<div class="cov" style="height:1.063830%"></div>
+		<div class="" style="height:1.063830%"></div>
+		<div class="cov" style="height:1.063830%"></div>
+		<div class="" style="height:4.255319%"></div>
+		<div class="cov" style="height:2.127660%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:2.127660%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:2.127660%"></div>
+		<div class="" style="height:4.255319%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:3.191489%"></div>
+		<div class="cov" style="height:3.191489%"></div>
+		<div class="" style="height:2.127660%"></div>
+		<div class="" style="height:3.191489%"></div>
+	</div>
+
+</body>
+</html>

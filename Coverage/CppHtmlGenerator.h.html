@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - Coverage/CppHtmlGenerator.h</title>
+	<link rel="stylesheet" type="text/css" href="../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../index.html">TopLevel</a> - <a href="index.html">Coverage</a> - <span>CppHtmlGenerator.h</span>
+					<span>(source / <a href="CppHtmlGenerator.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">75</td>
+				<td class="coverageValue">77</td>
+				<td class="green coverageValue">97&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">17</td>
+				<td class="coverageValue">17</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Cpp</span><span class="d">/Iterator.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  4]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Xml</span><span class="d">/Utils.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  5]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/split.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  6]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  7]</span><span><span class="d">#include·&lt;cctype&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  8]</span><span><span class="d">#include·&lt;unordered_map&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  9]</span><span><span class="d">#include·&lt;unordered_set&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 10]</span><span><span class="d">#include·&lt;vector&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 11]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 12]</span><span><span class="k">enum</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>Style<span class="w">·</span>:<span class="w">·</span><span class="k">char</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 13]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 14]</span><span><span class="w"> → </span>WhiteSpace<span class="w">·</span>=<span class="w">·</span><span class="s">&apos;w&apos;</span>,<span class="w">·</span>Comment=<span class="s">&apos;c&apos;</span>,<span class="w">·</span>String=<span class="s">&apos;s&apos;</span>,<span class="w">·</span>Directive=<span class="s">&apos;d&apos;</span>,<span class="w">·</span>Keyword<span class="w">·</span>=<span class="w">·</span><span class="s">&apos;k&apos;</span>,<span class="w">·</span>Type<span class="w">·</span>=<span class="w">·</span><span class="s">&apos;t&apos;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 15]</span><span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 16]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 17]</span><span><span class="c">//·dumb·version,·search·for·contiguous·chunks</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="18"><span class="line">[ 18]</span></a><span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>VisibleWhitespace(std::<span class="t">string_view</span><span class="w">·</span>value,<span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>s)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 19]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 20]</span><span><span class="w"> → </span><span class="k">for</span><span class="w">·</span>(<span class="t">size_t</span><span class="w">·</span>startPos<span class="w">·</span>=<span class="w">·</span>0;;)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 21]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 22]</span><span><span class="w"> →  → </span><span class="t">size_t</span><span class="w">·</span><span class="k">const</span><span class="w">·</span>find<span class="w">·</span>=<span class="w">·</span>value.find_first_of(<span class="s">&quot;· → &quot;</span>,<span class="w">·</span>startPos);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 23]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(find<span class="w">·</span>==<span class="w">·</span>std::<span class="t">string</span>::npos)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 24]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 25]</span><span><span class="w"> →  →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span>value.substr(startPos);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 26]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 27]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 28]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 29]</span><span><span class="w"> →  → </span>std::<span class="t">string_view</span><span class="w">·</span>replacement<span class="w">·</span>=<span class="w">·</span>value[find]==<span class="s">&apos;·&apos;</span><span class="w">·</span>?<span class="w">·</span><span class="s">&quot;\xC2\xB7&quot;</span><span class="w">·</span>:<span class="w">·</span><span class="s">&quot;·\xE2\x86\x92·&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 30]</span><span><span class="w"> →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span>value.substr(startPos,<span class="w">·</span>find<span class="w">·</span>-<span class="w">·</span>startPos)<span class="w">·</span>&lt;&lt;<span class="w">·</span>replacement;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 31]</span><span><span class="w"> →  → </span>startPos<span class="w">·</span>=<span class="w">·</span>find<span class="w">·</span>+<span class="w">·</span>1;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 32]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 33]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 34]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="35"><span class="line">[ 35]</span></a><span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>OpenSpan(Style<span class="w">·</span>cls,<span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>s)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 36]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 37]</span><span><span class="w"> → </span>s<span class="w">·</span>&lt;&lt;<span class="s">&quot;&lt;span·class=\&quot;&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="k">static_cast</span>&lt;<span class="k">char</span>&gt;(cls)<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;\&quot;&gt;&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 38]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 39]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="40"><span class="line">[ 40]</span></a><span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>CloseSpan(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>s)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 41]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 42]</span><span><span class="w"> → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;&lt;/span&gt;&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 43]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 44]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="45"><span class="line">[ 45]</span></a><span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>Span(Style<span class="w">·</span>cls,<span class="w">·</span><span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>value,<span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>s)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 46]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 47]</span><span><span class="w"> → </span>OpenSpan(cls,<span class="w">·</span>s);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 48]</span><span><span class="w"> → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span>value;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 49]</span><span><span class="w"> → </span>CloseSpan(s);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 50]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 51]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="52"><span class="line">[ 52]</span></a><span><span class="k">inline</span><span class="w">·</span><span class="k">bool</span><span class="w">·</span>IsKeyword(<span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 53]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 54]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">const</span><span class="w">·</span>std::<span class="t">unordered_set</span>&lt;std::<span class="t">string_view</span>&gt;<span class="w">·</span>keywords</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 55]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 56]</span><span><span class="w"> →  → </span><span class="s">&quot;alignas&quot;</span>,<span class="s">&quot;alignof&quot;</span>,<span class="s">&quot;and&quot;</span>,<span class="s">&quot;and_eq&quot;</span>,<span class="s">&quot;asm&quot;</span>,<span class="s">&quot;atomic_cancel&quot;</span>,<span class="s">&quot;atomic_commit&quot;</span>,<span class="s">&quot;atomic_noexcept&quot;</span>,<span class="s">&quot;auto&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 57]</span><span><span class="w"> →  → </span><span class="s">&quot;bitand&quot;</span>,<span class="s">&quot;bitor&quot;</span>,<span class="s">&quot;bool&quot;</span>,<span class="s">&quot;break&quot;</span>,<span class="s">&quot;case&quot;</span>,<span class="s">&quot;catch&quot;</span>,<span class="s">&quot;char&quot;</span>,<span class="s">&quot;char8_t&quot;</span>,<span class="s">&quot;char16_t&quot;</span>,<span class="s">&quot;char32_t&quot;</span>,<span class="s">&quot;class&quot;</span>,<span class="s">&quot;compl&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 58]</span><span><span class="w"> →  → </span><span class="s">&quot;concept&quot;</span>,<span class="s">&quot;const&quot;</span>,<span class="s">&quot;consteval&quot;</span>,<span class="s">&quot;constexpr&quot;</span>,<span class="s">&quot;const_cast&quot;</span>,<span class="s">&quot;continue&quot;</span>,<span class="s">&quot;co_await&quot;</span>,<span class="s">&quot;co_return&quot;</span>,<span class="s">&quot;co_yield&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 59]</span><span><span class="w"> →  → </span><span class="s">&quot;decltype&quot;</span>,<span class="s">&quot;default&quot;</span>,<span class="s">&quot;delete&quot;</span>,<span class="s">&quot;do&quot;</span>,<span class="s">&quot;double&quot;</span>,<span class="s">&quot;dynamic_cast&quot;</span>,<span class="s">&quot;else&quot;</span>,<span class="s">&quot;enum&quot;</span>,<span class="s">&quot;explicit&quot;</span>,<span class="s">&quot;export&quot;</span>,<span class="s">&quot;extern&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 60]</span><span><span class="w"> →  → </span><span class="s">&quot;false&quot;</span>,<span class="s">&quot;float&quot;</span>,<span class="s">&quot;for&quot;</span>,<span class="s">&quot;friend&quot;</span>,<span class="s">&quot;goto&quot;</span>,<span class="s">&quot;if&quot;</span>,<span class="s">&quot;inline&quot;</span>,<span class="s">&quot;int&quot;</span>,<span class="s">&quot;long&quot;</span>,<span class="s">&quot;mutable&quot;</span>,<span class="s">&quot;namespace&quot;</span>,<span class="s">&quot;new&quot;</span>,<span class="s">&quot;noexcept&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 61]</span><span><span class="w"> →  → </span><span class="s">&quot;not&quot;</span>,<span class="s">&quot;not_eq&quot;</span>,<span class="s">&quot;nullptr&quot;</span>,<span class="s">&quot;operator&quot;</span>,<span class="s">&quot;or&quot;</span>,<span class="s">&quot;or_eq&quot;</span>,<span class="s">&quot;private&quot;</span>,<span class="s">&quot;protected&quot;</span>,<span class="s">&quot;public&quot;</span>,<span class="s">&quot;reflexpr&quot;</span>,<span class="s">&quot;register&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 62]</span><span><span class="w"> →  → </span><span class="s">&quot;reinterpret_cast&quot;</span>,<span class="s">&quot;requires&quot;</span>,<span class="s">&quot;return&quot;</span>,<span class="s">&quot;short&quot;</span>,<span class="s">&quot;signed&quot;</span>,<span class="s">&quot;sizeof&quot;</span>,<span class="s">&quot;static&quot;</span>,<span class="s">&quot;static_assert&quot;</span>,<span class="s">&quot;static_cast&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 63]</span><span><span class="w"> →  → </span><span class="s">&quot;struct&quot;</span>,<span class="s">&quot;switch&quot;</span>,<span class="s">&quot;synchronized&quot;</span>,<span class="s">&quot;template&quot;</span>,<span class="s">&quot;this&quot;</span>,<span class="s">&quot;thread_local&quot;</span>,<span class="s">&quot;throw&quot;</span>,<span class="s">&quot;true&quot;</span>,<span class="s">&quot;try&quot;</span>,<span class="s">&quot;typedef&quot;</span>,<span class="s">&quot;typeid&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 64]</span><span><span class="w"> →  → </span><span class="s">&quot;typename&quot;</span>,<span class="s">&quot;union&quot;</span>,<span class="s">&quot;unsigned&quot;</span>,<span class="s">&quot;using&quot;</span>,<span class="s">&quot;virtual&quot;</span>,<span class="s">&quot;void&quot;</span>,<span class="s">&quot;volatile&quot;</span>,<span class="s">&quot;wchar_t&quot;</span>,<span class="s">&quot;while&quot;</span>,<span class="s">&quot;xor&quot;</span>,<span class="s">&quot;xor_eq&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 65]</span><span><span class="w"> →  → </span><span class="s">&quot;override&quot;</span>,<span class="s">&quot;final&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 66]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 67]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>keywords.find(value)<span class="w">·</span>!=<span class="w">·</span>keywords.end();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 68]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 69]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="70"><span class="line">[ 70]</span></a><span><span class="k">inline</span><span class="w">·</span><span class="k">bool</span><span class="w">·</span>IsCommonType(<span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 71]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 72]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">const</span><span class="w">·</span>std::<span class="t">unordered_set</span>&lt;std::<span class="t">string_view</span>&gt;<span class="w">·</span>types</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 73]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 74]</span><span><span class="w"> →  → </span><span class="s">&quot;array&quot;</span>,<span class="w">·</span><span class="s">&quot;bitset&quot;</span>,<span class="w">·</span><span class="s">&quot;deque&quot;</span>,<span class="w">·</span><span class="s">&quot;initializer_list&quot;</span>,<span class="w">·</span><span class="s">&quot;istringstream&quot;</span>,<span class="w">·</span><span class="s">&quot;list&quot;</span>,<span class="w">·</span><span class="s">&quot;map&quot;</span>,<span class="w">·</span><span class="s">&quot;multimap&quot;</span>,<span class="w">·</span><span class="s">&quot;multiset&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 75]</span><span><span class="w"> →  → </span><span class="s">&quot;ostream&quot;</span>,<span class="w">·</span><span class="s">&quot;ostringstream&quot;</span>,<span class="w">·</span><span class="s">&quot;pair&quot;</span>,<span class="w">·</span><span class="s">&quot;queue&quot;</span>,<span class="w">·</span><span class="s">&quot;set&quot;</span>,<span class="w">·</span><span class="s">&quot;size_t&quot;</span>,<span class="w">·</span><span class="s">&quot;string&quot;</span>,<span class="w">·</span><span class="s">&quot;string_view&quot;</span>,<span class="w">·</span><span class="s">&quot;shared_ptr&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 76]</span><span><span class="w"> →  → </span><span class="s">&quot;stack&quot;</span>,<span class="w">·</span><span class="s">&quot;stringstream&quot;</span>,<span class="w">·</span><span class="s">&quot;unique_ptr&quot;</span>,<span class="w">·</span><span class="s">&quot;unordered_map&quot;</span>,<span class="w">·</span><span class="s">&quot;unordered_multimap&quot;</span>,<span class="w">·</span><span class="s">&quot;unordered_multiset&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 77]</span><span><span class="w"> →  → </span><span class="s">&quot;unordered_set&quot;</span>,<span class="w">·</span><span class="s">&quot;vector&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 78]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 79]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>types.find(value)<span class="w">·</span>!=<span class="w">·</span>types.end();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 80]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 81]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="82"><span class="line">[ 82]</span></a><span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>Htmlify(<span class="k">const</span><span class="w">·</span>GLib::Cpp::Holder<span class="w">·</span>&amp;<span class="w">·</span>code,<span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>out)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 83]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 84]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>std::<span class="t">unordered_map</span>&lt;GLib::Cpp::State,<span class="w">·</span>Style&gt;<span class="w">·</span>styles<span class="w">·</span>=</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 85]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 86]</span><span><span class="w"> →  → </span>{<span class="w">·</span>GLib::Cpp::State::WhiteSpace,<span class="w">·</span>Style::WhiteSpace},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 87]</span><span><span class="w"> →  → </span>{<span class="w">·</span>GLib::Cpp::State::CommentLine,<span class="w">·</span>Style::Comment},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 88]</span><span><span class="w"> →  → </span>{<span class="w">·</span>GLib::Cpp::State::CommentBlock,<span class="w">·</span>Style::Comment},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 89]</span><span><span class="w"> →  → </span>{<span class="w">·</span>GLib::Cpp::State::String,<span class="w">·</span>Style::String},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 90]</span><span><span class="w"> →  → </span>{<span class="w">·</span>GLib::Cpp::State::RawString,<span class="w">·</span>Style::String},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 91]</span><span><span class="w"> →  → </span>{<span class="w">·</span>GLib::Cpp::State::CharacterLiteral,<span class="w">·</span>Style::String},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 92]</span><span><span class="w"> →  → </span>{<span class="w">·</span>GLib::Cpp::State::Directive,<span class="w">·</span>Style::Directive},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 93]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="94"><span class="line">[ 94]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="95"><span class="line">[ 95]</span></a><span><span class="w"> → </span><span class="k">auto</span><span class="w">·</span>alphaNumUnd<span class="w">·</span>=<span class="w">·</span>[](<span class="k">unsigned</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>c)<span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>std::isalnum(c)<span class="w">·</span>!=<span class="w">·</span>0<span class="w">·</span>||<span class="w">·</span>c<span class="w">·</span>==<span class="w">·</span><span class="s">&apos;_&apos;</span>;<span class="w">·</span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 96]</span><span><span class="w"> → </span><span class="k">auto</span><span class="w">·</span>whitespace<span class="w">·</span>=<span class="w">·</span>[](<span class="k">unsigned</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>c)<span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>std::isspace(c)<span class="w">·</span>!=<span class="w">·</span>0;<span class="w">·</span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 97]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 98]</span><span><span class="w"> → </span><span class="k">for</span><span class="w">·</span>(<span class="k">auto</span><span class="w">·</span>f<span class="w">·</span>:<span class="w">·</span>code)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 99]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[100]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(f.first<span class="w">·</span>==<span class="w">·</span>GLib::Cpp::State::Code)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[101]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[102]</span><span><span class="w"> →  →  → </span>GLib::Util::Split(f.second,<span class="w">·</span>alphaNumUnd,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="103"><span class="line">[103]</span></a><span><span class="w"> →  →  →  → </span>[&amp;](<span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[104]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[105]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(IsKeyword(value))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[106]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[107]</span><span><span class="w"> →  →  →  →  →  → </span>Span(Style::Keyword,<span class="w">·</span>value,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[108]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[109]</span><span><span class="w"> →  →  →  →  → </span><span class="k">else</span><span class="w">·</span><span class="k">if</span><span class="w">·</span>(IsCommonType(value))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[110]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[111]</span><span><span class="w"> →  →  →  →  →  → </span>Span(Style::Type,<span class="w">·</span>value,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[112]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[113]</span><span><span class="w"> →  →  →  →  → </span><span class="k">else</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[114]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[115]</span><span><span class="w"> →  →  →  →  →  → </span>GLib::Xml::Utils::Escape(value,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="116"><span class="line">[116]</span></a><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[117]</span><span><span class="w"> →  →  →  → </span>},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="118"><span class="line">[118]</span></a><span><span class="w"> →  →  →  → </span>[&amp;](<span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[119]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="120"><span class="line">[120]</span></a><span><span class="w"> →  →  →  →  → </span>GLib::Xml::Utils::Escape(value,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[121]</span><span><span class="w"> →  →  →  → </span>});</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[122]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[123]</span><span><span class="w"> →  →  → </span><span class="k">continue</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[124]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[125]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[126]</span><span><span class="w"> →  → </span><span class="k">auto</span><span class="w">·</span>it<span class="w">·</span>=<span class="w">·</span>styles.find(f.first);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[127]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[128]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(it<span class="w">·</span>==<span class="w">·</span>styles.end())</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[129]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[130]</span><span><span class="w"> →  →  →  → </span>GLib::Xml::Utils::Escape(f.second,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[131]</span><span><span class="w"> →  →  →  → </span><span class="k">continue</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[132]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[133]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[134]</span><span><span class="w"> →  →  → </span><span class="k">auto</span><span class="w">·</span>splitter<span class="w">·</span>=<span class="w">·</span>GLib::Util::SplitterView(f.second,<span class="w">·</span><span class="s">&quot;\n&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[135]</span><span><span class="w"> →  →  → </span><span class="k">for</span><span class="w">·</span>(<span class="k">auto</span><span class="w">·</span>sit<span class="w">·</span>=<span class="w">·</span>splitter.begin(),<span class="w">·</span>end<span class="w">·</span>=<span class="w">·</span>splitter.end();<span class="w">·</span>sit<span class="w">·</span>!=<span class="w">·</span>end;)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[136]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[137]</span><span><span class="w"> →  →  →  → </span>GLib::Cpp::State<span class="w">·</span>state<span class="w">·</span>=<span class="w">·</span>it-&gt;first;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[138]</span><span><span class="w"> →  →  →  → </span><span class="k">const</span><span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>&amp;<span class="w">·</span>value<span class="w">·</span>=<span class="w">·</span>*sit;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[139]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[140]</span><span><span class="w"> →  →  →  → </span><span class="k">if</span><span class="w">·</span>(!value.empty())</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[141]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[142]</span><span><span class="w"> →  →  →  →  → </span>OpenSpan(it-&gt;second,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[143]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[144]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(state<span class="w">·</span>==<span class="w">·</span>GLib::Cpp::State::WhiteSpace)<span class="w">·</span><span class="c">//·could·now·just·remove·whitespace·state·and·use·below·split</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[145]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[146]</span><span><span class="w"> →  →  →  →  →  → </span>VisibleWhitespace(value,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[147]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[148]</span><span><span class="w"> →  →  →  →  → </span><span class="k">else</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[149]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[150]</span><span><span class="w"> →  →  →  →  →  → </span>GLib::Util::Split(value,<span class="w">·</span>whitespace,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="151"><span class="line">[151]</span></a><span><span class="w"> →  →  →  →  →  →  → </span>[&amp;](std::<span class="t">string_view</span><span class="w">·</span>v)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[152]</span><span><span class="w"> →  →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="153"><span class="line">[153]</span></a><span><span class="w"> →  →  →  →  →  →  →  → </span>VisibleWhitespace(v,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[154]</span><span><span class="w"> →  →  →  →  →  →  → </span>},</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="155"><span class="line">[155]</span></a><span><span class="w"> →  →  →  →  →  →  → </span>[&amp;](std::<span class="t">string_view</span><span class="w">·</span>v)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[156]</span><span><span class="w"> →  →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="157"><span class="line">[157]</span></a><span><span class="w"> →  →  →  →  →  →  →  → </span>GLib::Xml::Utils::Escape(v,<span class="w">·</span>out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[158]</span><span><span class="w"> →  →  →  →  →  →  → </span>});</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[159]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[160]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[161]</span><span><span class="w"> →  →  →  →  → </span>CloseSpan(out);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[162]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[163]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[164]</span><span><span class="w"> →  →  →  → </span><span class="k">if</span><span class="w">·</span>(++sit<span class="w">·</span>==<span class="w">·</span>end)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[165]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[166]</span><span><span class="w"> →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[167]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[168]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[169]</span><span><span class="w"> →  →  →  → </span>out<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[170]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[171]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[172]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[173]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:5.376344%"></div>
+		<div class="" style="height:9.677420%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:2.688172%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.612903%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.612903%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:2.688172%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:6.451613%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:3.225807%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:5.376344%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.612903%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.612903%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="ncov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.612903%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.612903%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:0.537634%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:0.537634%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.612903%"></div>
+	</div>
+
+</body>
+</html>

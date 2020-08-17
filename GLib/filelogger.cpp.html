@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - GLib/filelogger.cpp</title>
+	<link rel="stylesheet" type="text/css" href="../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../index.html">TopLevel</a> - <a href="index.html">GLib</a> - <span>filelogger.cpp</span>
+					<span>(source / <a href="filelogger.cpp.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">156</td>
+				<td class="coverageValue">183</td>
+				<td class="amber coverageValue">85&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">27</td>
+				<td class="coverageValue">32</td>
+				<td class="amber coverageValue">84&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  1]</span><span><span class="d">#include·&quot;pch.h&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  3]</span><span><span class="d">#include·&quot;filelogger.h&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  4]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  5]</span><span><span class="d">#include·&quot;DurationPrinter.h&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  6]</span><span><span class="d">#include·&quot;Manipulator.h&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  7]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  8]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/compat.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  9]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 10]</span><span><span class="d">#include·&lt;sstream&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 11]</span><span><span class="d">#include·&lt;thread&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="12"><span class="line">[ 12]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 13]</span><span><span class="k">thread_local</span><span class="w">·</span>LogState<span class="w">·</span>FileLogger::logState;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 14]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="15"><span class="line">[ 15]</span></a><span>FileLogger::FileLogger()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 16]</span><span><span class="w"> → </span>:<span class="w">·</span>baseFileName(GLib::Compat::ProcessName()<span class="w">·</span>+<span class="w">·</span><span class="s">&quot;_&quot;</span><span class="w">·</span>+<span class="w">·</span>std::to_string(GLib::Compat::ProcessId()))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 17]</span><span><span class="w"> → </span>,<span class="w">·</span>path(GLib::Compat::filesystem::temp_directory_path()<span class="w">·</span><span class="w">/·</span><span class="s">&quot;glogfiles&quot;</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 18]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="19"><span class="line">[ 19]</span></a><span><span class="w"> → </span>create_directories(path);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 20]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 21]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 22]</span><span><span class="c">//·avoid</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="23"><span class="line">[ 23]</span></a><span>FileLogger::~FileLogger()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 24]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 25]</span><span><span class="w"> → </span>CloseStream();<span class="w">·</span><span class="c">//</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 26]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 27]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="28"><span class="line">[ 28]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::Write(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>message)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 29]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 30]</span><span><span class="w"> → </span>Instance().InternalWrite(level,<span class="w">·</span>prefix,<span class="w">·</span>message);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 31]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 32]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="33"><span class="line">[ 33]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::Write(<span class="k">char</span><span class="w">·</span>c)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 34]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 35]</span><span><span class="w"> → </span>logState.Put(c);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 36]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 37]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="38"><span class="line">[ 38]</span></a><span><span class="k">extern</span><span class="w">·</span><span class="s">&quot;C&quot;</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>GLib::Flog::Detail::Write(<span class="k">char</span><span class="w">·</span>c)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 39]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 40]</span><span><span class="w"> → </span>FileLogger::Write(c);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 41]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 42]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="43"><span class="line">[ 43]</span></a><span>StreamInfo<span class="w">·</span>FileLogger::GetStream()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 44]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 45]</span><span><span class="w"> → </span><span class="c">//·the·reason·to·add·yyyy-MM-dd·at·the·onset·is·so·that·the·file·collision·rate·is·lower·in·that·it·wont·hit·a·random·old·file</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 46]</span><span><span class="w"> → </span><span class="c">//·and·we&apos;re·not·renaming·old·files·here·atm·(which·has·the·file·time·tunneling·problem·http://support2.microsoft.com/kb/172190)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 47]</span><span><span class="w"> → </span><span class="c">//·with·date·added·at·start·there·is·no·need·to·add·at·file·rollover·time,·and·no·need·to·rename·the·file·at·all</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 48]</span><span><span class="w"> → </span><span class="c">//·however·flogTail·currently·does·not·work·with·this·format</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 49]</span><span><span class="w"> → </span><span class="c">//·without·adding·the·date·at·start,·it·currently·wont·get·added·at·rollover</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 50]</span><span><span class="w"> → </span><span class="c">//·rollover·will·just·increase·the·fileCount·app_pid_n,·and·again·will·confuse·flog·tails·fileChain·logic</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 51]</span><span><span class="w"> → </span><span class="c">//·change·this·to·be·full·flog·compliant,·with·some·params,·then·upgrade·flog·tail·to·handle·any·scenario</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 52]</span><span><span class="w"> → </span><span class="c">//static·constexpr·bool·alwaysAddDate·=·false;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 53]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 54]</span><span><span class="w"> → </span>std::<span class="t">ostringstream</span><span class="w">·</span>s;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 55]</span><span><span class="w"> → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span>baseFileName;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 56]</span><span><span class="w"> → </span><span class="c">//·if·(alwaysAddDate)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 57]</span><span><span class="w"> → </span><span class="c">//·{</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 58]</span><span><span class="w"> → </span><span class="c">//· → time_t·t·=·std::time(nullptr);</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 59]</span><span><span class="w"> → </span><span class="c">//· → tm·tm;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 60]</span><span><span class="w"> → </span><span class="c">//· → Compat::LocalTime(tm,·t);</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 61]</span><span><span class="w"> → </span><span class="c">//· → s·&lt;&lt;·&quot;_&quot;·&lt;&lt;·std::put_time(&amp;tm,·&quot;%Y-%m-%d&quot;);</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 62]</span><span><span class="w"> → </span><span class="c">//·}</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 63]</span><span><span class="w"> → </span>GLib::Compat::filesystem::path<span class="w">·</span>logFileName<span class="w">·</span>=<span class="w">·</span>path<span class="w">·</span><span class="w">/·</span>(s.str()<span class="w">·</span>+<span class="w">·</span><span class="s">&quot;.log&quot;</span>);<span class="w">·</span><span class="c">//·combine,·check·trailing·etc.</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 64]</span><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span><span class="k">unsigned</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>date<span class="w">·</span>=<span class="w">·</span>GetDate();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 65]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 66]</span><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>MaxTries<span class="w">·</span>=<span class="w">·</span>1000;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 67]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 68]</span><span><span class="w"> → </span><span class="c">//·consolidate·with·renameOldFile??</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 69]</span><span><span class="w"> → </span><span class="k">for</span><span class="w">·</span>(<span class="k">int</span><span class="w">·</span>num<span class="w">·</span>=<span class="w">·</span>0;<span class="w">·</span>num<span class="w">·</span>&lt;<span class="w">·</span>MaxTries;<span class="w">·</span>++num)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 70]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 71]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(num<span class="w">·</span>!=<span class="w">·</span>0)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 72]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 73]</span><span><span class="w"> →  →  → </span>logFileName.replace_filename(s.str()<span class="w">·</span>+<span class="w">·</span><span class="s">&quot;_&quot;</span><span class="w">·</span>+<span class="w">·</span>std::to_string(num)<span class="w">·</span>+<span class="w">·</span><span class="s">&quot;.log&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 74]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 75]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 76]</span><span><span class="w"> →  → </span><span class="c">//RenameOldFile(logFileName.u8string());</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 77]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 78]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(exists(logFileName))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 79]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 80]</span><span><span class="w"> →  →  → </span><span class="k">continue</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 81]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 82]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 83]</span><span><span class="w"> →  → </span>std::ofstream<span class="w">·</span>newStreamWriter(logFileName);<span class="w">·</span><span class="c">//·FileShare.ReadWrite·|·FileShare.Delete?·HANDLE_FLAG_INHERIT</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 84]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(!newStreamWriter)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 85]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[ 86]</span><span><span class="w"> →  →  → </span><span class="k">continue</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 87]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 88]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 89]</span><span><span class="w"> →  → </span><span class="c">//Debug::Write(&quot;Flogging·to·file·:·{0}&quot;,·logFileName.u8string());</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 90]</span><span><span class="w"> →  → </span><span class="k">try</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 91]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 92]</span><span><span class="w"> →  →  → </span><span class="c">// →  →  →  →  → Stream·stream·=·File.Open(str,·FileMode.CreateNew,·FileAccess.Write,·FileShare.ReadWrite·|·FileShare.Delete);</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 93]</span><span><span class="w"> →  →  → </span><span class="c">// →  →  →  →  → newStreamWriter·=·new·StreamWriter(stream,·encoding){·AutoFlush·=·true·};</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 94]</span><span><span class="w"> →  →  → </span>WriteHeader(newStreamWriter);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 95]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 96]</span><span><span class="w"> →  →  → </span><span class="c">//·rolled·over·from·file...</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 97]</span><span><span class="w"> →  →  → </span><span class="c">//·flush?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 98]</span><span><span class="w"> →  →  → </span><span class="c">//·ensure·we·are·not·tunneled·here...</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 99]</span><span><span class="w"> →  →  → </span><span class="c">//·http://blogs.msdn.com/oldnewthing/archive/2005/07/15/439261.aspx</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[100]</span><span><span class="w"> →  →  → </span><span class="c">//·http://support.microsoft.com/?kbid=172190</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[101]</span><span><span class="w"> →  →  → </span><span class="c">//·FILETIME·ft;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[102]</span><span><span class="w"> →  →  → </span><span class="c">//::GetSystemTimeAsFileTime(&amp;ft);</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[103]</span><span><span class="w"> →  →  → </span><span class="c">//::SetFileTime(GetImpl(m_stream),·&amp;ft,·NULL,·NULL);·//·filesystem·ver?·nope</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[104]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[105]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>StreamInfo<span class="w">·</span>{<span class="w">·</span>move(newStreamWriter),<span class="w">·</span>logFileName,<span class="w">·</span>date<span class="w">·</span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[106]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="107"><span class="line">[107]</span></a><span><span class="w"> →  → </span><span class="k">catch</span><span class="w">·</span>(...)<span class="w">·</span><span class="c">//·specific</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[108]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[109]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[110]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[111]</span><span><span class="w"> → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(<span class="s">&quot;Exhausted·possible·stream·names·&quot;</span><span class="w">·</span>+<span class="w">·</span>logFileName.u8string());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[112]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[113]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="114"><span class="line">[114]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::InternalWrite(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>message)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[115]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[116]</span><span><span class="w"> → </span><span class="c">//·ShouldTrace·...</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[117]</span><span><span class="w"> → </span><span class="k">if</span><span class="w">·</span>(level<span class="w">·</span>&lt;<span class="w">·</span>logLevel)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[118]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[119]</span><span><span class="w"> →  → </span><span class="k">return</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[120]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[121]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[122]</span><span><span class="w"> → </span>CommitPendingScope();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[123]</span><span><span class="w"> → </span>WriteToStream(level,<span class="w">·</span>prefix,<span class="w">·</span>message);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[124]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[125]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="126"><span class="line">[126]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::WriteToStream(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>message)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[127]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[128]</span><span><span class="w"> → </span>std::lock_guard&lt;std::mutex&gt;<span class="w">·</span>guard(streamMonitor);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[129]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[130]</span><span><span class="w"> →  → </span><span class="k">try</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[131]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[132]</span><span><span class="w"> →  →  → </span><span class="k">const</span><span class="w">·</span><span class="t">size_t</span><span class="w">·</span>newEntrySize<span class="w">·</span>=<span class="w">·</span>message.size();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[133]</span><span><span class="w"> →  →  → </span>HandleFileRollover(newEntrySize);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[134]</span><span><span class="w"> →  →  → </span>EnsureStreamIsOpen();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[135]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(!ResourcesAvailable(newEntrySize))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[136]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[137]</span><span><span class="w"> →  →  →  → </span><span class="k">return</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[138]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[139]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[140]</span><span><span class="w"> →  →  → </span><span class="c">//·flags·etc.</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[141]</span><span><span class="w"> →  →  → </span><span class="c">//·move·some·formatting·out·of·lock</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[142]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[143]</span><span><span class="w"> →  →  → </span><span class="k">auto</span><span class="w">·</span>now<span class="w">·</span>=<span class="w">·</span>std::chrono::system_clock::now();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[144]</span><span><span class="w"> →  →  → </span><span class="k">const</span><span class="w">·</span>std::time_t<span class="w">·</span>t<span class="w">·</span>=<span class="w">·</span>std::chrono::system_clock::to_time_t(now);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[145]</span><span><span class="w"> →  →  → </span>std::tm<span class="w">·</span>tm{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[146]</span><span><span class="w"> →  →  → </span>GLib::Compat::LocalTime(tm,<span class="w">·</span>t);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[147]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[148]</span><span><span class="w"> →  →  → </span><span class="k">const</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>ms<span class="w">·</span>=<span class="w">·</span><span class="k">static_cast</span>&lt;<span class="k">int</span>&gt;(std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(now.time_since_epoch()).count()<span class="w">·</span>%<span class="w">·</span>1000);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[149]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[150]</span><span><span class="w"> →  →  → </span>streamInfo.Stream()<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::left</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[151]</span><span><span class="w"> →  →  →  → </span>&lt;&lt;<span class="w">·</span>std::put_time(&amp;tm,<span class="w">·</span><span class="s">&quot;%d·%b·%Y,·%H:%M:%S&quot;</span>)<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;.&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::setw(3)<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::setfill(<span class="s">&apos;0&apos;</span>)<span class="w">·</span>&lt;&lt;<span class="w">·</span>ms<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::setfill(<span class="s">&apos;·&apos;</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[152]</span><span><span class="w"> →  →  →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·:·[·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::setw(THREAD_ID_WIDTH)<span class="w">·</span>&lt;&lt;<span class="w">·</span>Manipulate(ThreadName,<span class="w">·</span>logState.ThreadName())<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·]·:·&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[153]</span><span><span class="w"> →  →  →  → </span>&lt;&lt;<span class="w">·</span>std::setw(LEVEL_WIDTH)<span class="w">·</span>&lt;&lt;<span class="w">·</span>Manipulate(TranslateLevel,<span class="w">·</span>level)<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·:·&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[154]</span><span><span class="w"> →  →  →  → </span>&lt;&lt;<span class="w">·</span>std::setw(PREFIX_WIDTH)<span class="w">·</span>&lt;&lt;<span class="w">·</span>prefix<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·:·&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[155]</span><span><span class="w"> →  →  →  → </span>&lt;&lt;<span class="w">·</span>message<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::flush;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[156]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="157"><span class="line">[157]</span></a><span><span class="w"> →  → </span><span class="k">catch</span><span class="w">·</span>(...)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[158]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[159]</span><span><span class="w"> →  →  → </span>CloseStream();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[160]</span><span><span class="w"> →  →  → </span><span class="k">throw</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[161]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[162]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[163]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[164]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="165"><span class="line">[165]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::EnsureStreamIsOpen()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[166]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[167]</span><span><span class="w"> → </span><span class="k">if</span><span class="w">·</span>(!streamInfo)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[168]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[169]</span><span><span class="w"> →  → </span>streamInfo<span class="w">·</span>=<span class="w">·</span>GetStream();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[170]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[171]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[172]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="173"><span class="line">[173]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::HandleFileRollover(<span class="t">size_t</span><span class="w">·</span>newEntrySize)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[174]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[175]</span><span><span class="w"> → </span><span class="k">if</span><span class="w">·</span>(streamInfo)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[176]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[177]</span><span><span class="w"> →  → </span><span class="k">auto</span><span class="w">·</span>oldPath<span class="w">·</span>=<span class="w">·</span>streamInfo.Path();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[178]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>size<span class="w">·</span>=<span class="w">·</span>streamInfo.Stream().tellp();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[179]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(newEntrySize<span class="w">·</span>+<span class="w">·</span>size<span class="w">·</span>&gt;=<span class="w">·</span>maxFileSize<span class="w">·</span>||<span class="w">·</span>streamInfo.Date()<span class="w">·</span>!=<span class="w">·</span>GetDate())</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[180]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[181]</span><span><span class="w"> →  →  → </span>CloseStream();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[182]</span><span><span class="w"> →  →  → </span><span class="c">//RenameOldFile(oldPath);</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[183]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[184]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[185]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[186]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="187"><span class="line">[187]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::CloseStream()<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[188]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[189]</span><span><span class="w"> → </span><span class="k">if</span><span class="w">·</span>(streamInfo)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[190]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[191]</span><span><span class="w"> →  → </span><span class="k">try</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[192]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[193]</span><span><span class="w"> →  →  → </span>WriteFooter(streamInfo.Stream());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[194]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="195"><span class="line">[195]</span></a><span><span class="w"> →  → </span><span class="k">catch</span><span class="w">·</span>(...)<span class="w">·</span><span class="c">//·specific?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[196]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[197]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[198]</span><span><span class="w"> →  → </span><span class="k">try</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[199]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[200]</span><span><span class="w"> →  →  → </span>streamInfo.Stream().flush();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[201]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="202"><span class="line">[202]</span></a><span><span class="w"> →  → </span><span class="k">catch</span><span class="w">·</span>(...)<span class="w">·</span><span class="c">//·specific?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[203]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[204]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[205]</span><span><span class="w"> →  → </span><span class="c">//streamWriter.close();</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[206]</span><span><span class="w"> →  → </span>streamInfo<span class="w">·</span>=<span class="w">·</span>StreamInfo();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[207]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[208]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[209]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="210"><span class="line">[210]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::WriteHeader(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>writer)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[211]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[212]</span><span><span class="w"> → </span>writer<span class="w">·</span>&lt;&lt;<span class="w">·</span>HeaderFooterSeparator<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[213]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[214]</span><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>std::time_t<span class="w">·</span>t<span class="w">·</span>=<span class="w">·</span>std::time(<span class="k">nullptr</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[215]</span><span><span class="w"> → </span>std::tm<span class="w">·</span>tm<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[216]</span><span><span class="w"> → </span>GLib::Compat::LocalTime(tm,<span class="w">·</span>t);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[217]</span><span><span class="w"> → </span>std::tm<span class="w">·</span>gtm<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[218]</span><span><span class="w"> → </span>GLib::Compat::GmTime(gtm,<span class="w">·</span>t);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[219]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[220]</span><span><span class="w"> → </span>std::<span class="t">string</span><span class="w">·</span>name<span class="w">·</span>=<span class="w">·</span>GLib::Compat::ProcessName();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[221]</span><span><span class="w"> → </span>std::<span class="t">string</span><span class="w">·</span>path<span class="w">·</span>=<span class="w">·</span>GLib::Compat::ProcessPath();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[222]</span><span><span class="w"> → </span>std::<span class="t">string</span><span class="w">·</span>cmd<span class="w">·</span>=<span class="w">·</span>GLib::Compat::CommandLine();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[223]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[224]</span><span><span class="w"> → </span><span class="t">size_t</span><span class="w">·</span>pos<span class="w">·</span>=<span class="w">·</span>cmd.find(path);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[225]</span><span><span class="w"> → </span><span class="k">if</span><span class="w">·</span>(pos<span class="w">·</span>!=<span class="w">·</span>std::<span class="t">string</span>::npos)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[226]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[227]</span><span><span class="w"> →  → </span>cmd.erase(pos,<span class="w">·</span>path.size());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[228]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[229]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[230]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">bool</span><span class="w">·</span>is64BitProcess<span class="w">·</span>=<span class="w">·</span><span class="k">sizeof</span>(<span class="k">void</span>*)<span class="w">·</span>==<span class="w">·</span>8;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[231]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>bits<span class="w">·</span>=<span class="w">·</span>is64BitProcess<span class="w">·</span>?<span class="w">·</span>64<span class="w">·</span>:<span class="w">·</span>32;<span class="w">·</span><span class="c">//·more?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[232]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[233]</span><span><span class="w"> → </span>writer</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[234]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;Opened······:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::put_time(&amp;tm,<span class="w">·</span><span class="s">&quot;%d·%b·%Y,·%H:%M:%S·(%z)&quot;</span>)<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[235]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;OpenedUtc···:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::put_time(&amp;gtm,<span class="w">·</span><span class="s">&quot;%F·%TZ&quot;</span>)<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[236]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;ProcessName·:·(&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>bits<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·bit)·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>name<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[237]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;FullPath····:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>path<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[238]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;CmdLine·····:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>cmd<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[239]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;ProcessId···:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>GLib::Compat::ProcessId()<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[240]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;ThreadId····:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::this_thread::get_id()<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[241]</span><span><span class="w"> → </span><span class="c">//Formatter::Format(writer,·&quot;UserName····:·{0}\\{1}&quot;,·Environment.UserDomainName,·Environment.UserName);</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[242]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[243]</span><span><span class="w"> → </span>writer<span class="w">·</span>&lt;&lt;<span class="w">·</span>HeaderFooterSeparator<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[244]</span><span><span class="w"> → </span>writer.flush();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[245]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[246]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="247"><span class="line">[247]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::WriteFooter(std::<span class="t">ostream</span><span class="w">·</span>&amp;writer)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[248]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[249]</span><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>std::time_t<span class="w">·</span>t<span class="w">·</span>=<span class="w">·</span>std::time(<span class="k">nullptr</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[250]</span><span><span class="w"> → </span>std::tm<span class="w">·</span>tm<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[251]</span><span><span class="w"> → </span>GLib::Compat::LocalTime(tm,<span class="w">·</span>t);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[252]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[253]</span><span><span class="w"> → </span>writer</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[254]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span>HeaderFooterSeparator<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[255]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span><span class="s">&quot;Closed·······&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::put_time(&amp;tm,<span class="w">·</span><span class="s">&quot;%d·%b·%Y,·%H:%M:%S·(%z)&quot;</span>)<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[256]</span><span><span class="w"> →  → </span>&lt;&lt;<span class="w">·</span>HeaderFooterSeparator<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[257]</span><span><span class="w"> → </span>writer.flush();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[258]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[259]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="260"><span class="line">[260]</span></a><span><span class="k">bool</span><span class="w">·</span>FileLogger::ResourcesAvailable(<span class="t">size_t</span><span class="w">·</span>newEntrySize)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[261]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[262]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>streamInfo<span class="w">·</span>&amp;&amp;<span class="w">·</span>GetFreeDiskSpace(path)<span class="w">·</span>-<span class="w">·</span>newEntrySize<span class="w">·</span>&gt;=<span class="w">·</span>ReserveDiskSpace;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[263]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[264]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="265"><span class="line">[265]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::CommitPendingScope()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[266]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[267]</span><span><span class="w"> → </span><span class="k">if</span><span class="w">·</span>(!logState.Pending())</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[268]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[269]</span><span><span class="w"> →  → </span><span class="k">return</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[270]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[271]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[272]</span><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>Scope<span class="w">·</span>&amp;<span class="w">·</span>scope<span class="w">·</span>=<span class="w">·</span>logState.Top();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[273]</span><span><span class="w"> → </span>std::<span class="t">ostringstream</span><span class="w">·</span>s;<span class="w">·</span><span class="c">//·use·thread·stream</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[274]</span><span><span class="w"> → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::setw(logState.Depth())<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>scope.Stem()<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;&gt;·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>scope.ScopeText();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[275]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[276]</span><span><span class="w"> → </span><span class="c">//·need·to·go·via·Instance()·again·as·method·is·static·due·to·use·of·logState</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[277]</span><span><span class="w"> → </span>Instance().WriteToStream(scope.Level(),<span class="w">·</span>scope.Prefix().c_str(),<span class="w">·</span>s.str().c_str());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[278]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[279]</span><span><span class="w"> → </span>logState.Commit();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[280]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[281]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="282"><span class="line">[282]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::ScopeStart(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>scope,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>stem)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[283]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[284]</span><span><span class="w"> → </span><span class="c">//·level·check?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[285]</span><span><span class="w"> → </span>CommitPendingScope();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[286]</span><span><span class="w"> → </span>logState.Push({<span class="w">·</span>level,<span class="w">·</span>prefix,<span class="w">·</span>scope,<span class="w">·</span>stem<span class="w">·</span>});</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[287]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[288]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="289"><span class="line">[289]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::CommitBuffer(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[290]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[291]</span><span><span class="w"> → </span>Write(level,<span class="w">·</span>prefix,<span class="w">·</span>logState.Get());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[292]</span><span><span class="w"> → </span>logState.Reset();<span class="w">·</span><span class="c">//·had·AV·here</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[293]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[294]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="295"><span class="line">[295]</span></a><span><span class="k">void</span><span class="w">·</span>FileLogger::ScopeEnd(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[296]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[297]</span><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>Scope<span class="w">·</span>scope<span class="w">·</span>=<span class="w">·</span>logState.Top();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[298]</span><span><span class="w"> → </span><span class="k">bool</span><span class="w">·</span>pending<span class="w">·</span>=<span class="w">·</span>logState.Pop();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[299]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[300]</span><span><span class="w"> → </span>std::<span class="t">ostringstream</span><span class="w">·</span>s;<span class="w">·</span><span class="c">//·use·thread·stream</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[301]</span><span><span class="w"> → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::setw(logState.Depth())<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;&lt;&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>scope.Stem();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[302]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[303]</span><span><span class="w"> → </span><span class="k">if</span><span class="w">·</span>(pending)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[304]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[305]</span><span><span class="w"> →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;&gt;&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[306]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[307]</span><span><span class="w"> → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>scope.ScopeText()<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>scope.Duration&lt;std::chrono::nanoseconds&gt;();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[308]</span><span><span class="w"> → </span>Write(scope.Level(),<span class="w">·</span>prefix,<span class="w">·</span>s.str().c_str());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[309]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[310]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="311"><span class="line">[311]</span></a><span>FileLogger&amp;<span class="w">·</span>FileLogger::Instance()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[312]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[313]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>FileLogger<span class="w">·</span>fileLogger;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[314]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>fileLogger;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[315]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[316]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="317"><span class="line">[317]</span></a><span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>FileLogger::Stream()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[318]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[319]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>Instance().logState.Stream();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[320]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[321]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="322"><span class="line">[322]</span></a><span>GLib::Flog::Level<span class="w">·</span>FileLogger::SetLogLevel(GLib::Flog::Level<span class="w">·</span>level)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[323]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[324]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>std::exchange(Instance().logLevel,<span class="w">·</span>level);<span class="w">·</span><span class="c">//·atomic?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[325]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[326]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="327"><span class="line">[327]</span></a><span><span class="t">size_t</span><span class="w">·</span>FileLogger::SetMaxFileSize(<span class="t">size_t</span><span class="w">·</span>size)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[328]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[329]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>std::exchange(Instance().maxFileSize,<span class="w">·</span>size);<span class="w">·</span><span class="c">//·atomic?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[330]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[331]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[332]</span><span><span class="c">//·use·map,·use·config,·set·field·width</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="333"><span class="line">[333]</span></a><span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>FileLogger::TranslateLevel(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>stream,<span class="w">·</span>GLib::Flog::Level<span class="w">·</span>level)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[334]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[335]</span><span><span class="w"> → </span><span class="k">switch</span><span class="w">·</span>(level)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[336]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[337]</span><span><span class="w"> →  → </span><span class="k">case</span><span class="w">·</span>GLib::Flog::Level::Fatal:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[338]</span><span><span class="w"> →  →  → </span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;FATAL···&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[339]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[340]</span><span><span class="w"> →  → </span><span class="k">case</span><span class="w">·</span>GLib::Flog::Level::Critical:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[341]</span><span><span class="w"> →  →  → </span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;CRITICAL&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[342]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[343]</span><span><span class="w"> →  → </span><span class="k">case</span><span class="w">·</span>GLib::Flog::Level::Error:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[344]</span><span><span class="w"> →  →  → </span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;ERROR···&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[345]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[346]</span><span><span class="w"> →  → </span><span class="k">case</span><span class="w">·</span>GLib::Flog::Level::Warning:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[347]</span><span><span class="w"> →  →  → </span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;WARNING·&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[348]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[349]</span><span><span class="w"> →  → </span><span class="k">case</span><span class="w">·</span>GLib::Flog::Level::Info:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[350]</span><span><span class="w"> →  →  → </span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;INFO····&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[351]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[352]</span><span><span class="w"> →  → </span><span class="k">case</span><span class="w">·</span>GLib::Flog::Level::Debug:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[353]</span><span><span class="w"> →  →  → </span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;DEBUG···&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[354]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[355]</span><span><span class="w"> →  → </span><span class="k">case</span><span class="w">·</span>GLib::Flog::Level::Spam:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[356]</span><span><span class="w"> →  →  → </span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;SPAM····&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[357]</span><span><span class="w"> →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[358]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[359]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>stream;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[360]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[361]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="362"><span class="line">[362]</span></a><span>std::<span class="w">·</span><span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>FileLogger::ThreadName(std::<span class="w">·</span><span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>stream,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>threadName)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[363]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[364]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>threadName<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[365]</span><span><span class="w"> →  → </span>?<span class="w">·</span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span>threadName</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[366]</span><span><span class="w"> →  → </span>:<span class="w">·</span>stream<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::this_thread::get_id();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[367]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[368]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="369"><span class="line">[369]</span></a><span><span class="k">unsigned</span><span class="w">·</span>FileLogger::GetDate()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[370]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[371]</span><span><span class="w"> → </span><span class="k">const</span><span class="w">·</span>std::time_t<span class="w">·</span>t<span class="w">·</span>=<span class="w">·</span>std::time(<span class="k">nullptr</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[372]</span><span><span class="w"> → </span>std::tm<span class="w">·</span>tm<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[373]</span><span><span class="w"> → </span>GLib::Compat::LocalTime(tm,<span class="w">·</span>t);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[374]</span><span><span class="w"> → </span><span class="k">constexpr</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>TmEpochYear<span class="w">·</span>=<span class="w">·</span>1900;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[375]</span><span><span class="w"> → </span><span class="k">constexpr</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>ShiftTwoDecimals<span class="w">·</span>=<span class="w">·</span>100;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[376]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>((TmEpochYear<span class="w">·</span>+<span class="w">·</span>tm.tm_year)<span class="w">·</span>*<span class="w">·</span>ShiftTwoDecimals<span class="w">·</span>+<span class="w">·</span>tm.tm_mon<span class="w">·</span>+<span class="w">·</span>1)<span class="w">·</span>*<span class="w">·</span>ShiftTwoDecimals<span class="w">·</span>+<span class="w">·</span>tm.tm_mday;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[377]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[378]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="379"><span class="line">[379]</span></a><span>uintmax_t<span class="w">·</span>FileLogger::GetFreeDiskSpace(<span class="k">const</span><span class="w">·</span>GLib::Compat::filesystem::path<span class="w">·</span>&amp;<span class="w">·</span>path)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[380]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[381]</span><span><span class="w"> → </span><span class="k">return</span><span class="w">·</span>space(path).available;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[382]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:2.531646%"></div>
+		<div class="" style="height:3.037975%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:1.265823%"></div>
+		<div class="" style="height:0.759494%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:2.278481%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:1.772152%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:1.012658%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="ncov" style="height:0.253165%"></div>
+		<div class="" style="height:1.772152%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:2.531646%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="ncov" style="height:1.265823%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.759494%"></div>
+		<div class="cov" style="height:1.012658%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="ncov" style="height:0.253165%"></div>
+		<div class="" style="height:1.265823%"></div>
+		<div class="cov" style="height:1.012658%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:1.772152%"></div>
+		<div class="ncov" style="height:1.012658%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.759494%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="ncov" style="height:0.506329%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="ncov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:1.265823%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:1.265823%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:2.278481%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:1.012658%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.759494%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:1.012658%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:1.012658%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="ncov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.759494%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="ncov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="ncov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="ncov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="ncov" style="height:0.506329%"></div>
+		<div class="" style="height:0.253165%"></div>
+		<div class="ncov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.506329%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.253165%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:2.025316%"></div>
+		<div class="" style="height:0.506329%"></div>
+		<div class="cov" style="height:0.759494%"></div>
+		<div class="" style="height:0.759494%"></div>
+	</div>
+
+</body>
+</html>

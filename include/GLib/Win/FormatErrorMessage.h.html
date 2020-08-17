@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Win/FormatErrorMessage.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Win</a> - <span>FormatErrorMessage.h</span>
+					<span>(source / <a href="FormatErrorMessage.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">18</td>
+				<td class="coverageValue">21</td>
+				<td class="amber coverageValue">85&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">2</td>
+				<td class="coverageValue">2</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="d">#include·&lt;Windows.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/cvt.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span><span class="d">#include·&lt;ostream&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span><span class="d">#include·&lt;string_view&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Win::Util</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span><span class="w"> → </span><span class="k">namespace</span><span class="w">·</span>Detail</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="14"><span class="line">[14]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>DWORD<span class="w">·</span>FormatMessageCast(DWORD<span class="w">·</span>dwFlags,<span class="w">·</span>LPCVOID<span class="w">·</span>lpSource,<span class="w">·</span>DWORD<span class="w">·</span>dwMessageId,<span class="w">·</span>LPWSTR*<span class="w">·</span>lpBuffer)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[15]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>::FormatMessageW(dwFlags,<span class="w">·</span>lpSource,<span class="w">·</span>dwMessageId,<span class="w">·</span>MAKELANGID(LANG_NEUTRAL,<span class="w">·</span>SUBLANG_DEFAULT),<span class="w">·</span><span class="c">//·NOLINT(hicpp-signed-bitwise)·baad·macro</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> →  →  →  → </span><span class="k">reinterpret_cast</span>&lt;LPWSTR&gt;(lpBuffer),<span class="w">·</span>0,<span class="w">·</span><span class="k">nullptr</span>);<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[18]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[19]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[20]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="21"><span class="line">[21]</span></a><span><span class="w"> → </span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>FormatErrorMessage(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>stm,<span class="w">·</span><span class="k">unsigned</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>error,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">wchar_t</span><span class="w">·</span>*<span class="w">·</span>moduleName<span class="w">·</span>=<span class="w">·</span><span class="k">nullptr</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[23]</span><span><span class="w"> →  → </span><span class="k">wchar_t</span><span class="w">·</span>*pszMsg;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[24]</span><span><span class="w"> →  → </span><span class="k">int</span><span class="w">·</span>flags<span class="w">·</span>=<span class="w">·</span>FORMAT_MESSAGE_ALLOCATE_BUFFER<span class="w">·</span>|<span class="w">·</span>FORMAT_MESSAGE_FROM_SYSTEM<span class="w">·</span>|<span class="w">·</span>FORMAT_MESSAGE_IGNORE_INSERTS;<span class="w">·</span><span class="c">//·NOLINT(hicpp-signed-bitwise)·baad·macro</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(moduleName<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[27]</span><span><span class="w"> →  →  → </span>flags<span class="w">·</span>|=<span class="w">·</span>FORMAT_MESSAGE_FROM_HMODULE;<span class="w">·</span><span class="c">//·NOLINT(hicpp-signed-bitwise)·baad·macro</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[29]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> →  → </span>HMODULE<span class="w">·</span>module(moduleName<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span><span class="w">·</span>?<span class="w">·</span>::LoadLibraryW(moduleName)<span class="w">·</span>:<span class="w">·</span><span class="k">nullptr</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(Detail::FormatMessageCast(flags,<span class="w">·</span>module,<span class="w">·</span>error,<span class="w">·</span>&amp;pszMsg)<span class="w">·</span>!=<span class="w">·</span>0)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[32]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> →  →  → </span><span class="t">size_t</span><span class="w">·</span>len<span class="w">·</span>=<span class="w">·</span>::wcslen(pszMsg);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> →  →  → </span>std::wstring_view<span class="w">·</span>wMsg<span class="w">·</span>{<span class="w">·</span>pszMsg,<span class="w">··</span>len<span class="w">·</span>};<span class="w">·</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  →  → </span><span class="k">constexpr</span><span class="w">·</span>std::wstring_view<span class="w">·</span>ending<span class="w">·</span>=<span class="w">·</span>L<span class="s">&quot;\r\n&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(std::equal(ending.rbegin(),<span class="w">·</span>ending.rend(),<span class="w">·</span>wMsg.rbegin()))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[38]</span><span><span class="w"> →  →  →  → </span>wMsg<span class="w">·</span>=<span class="w">·</span>wMsg.substr(0,<span class="w">·</span>len<span class="w">·</span>-<span class="w">·</span>ending.size());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[39]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[40]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> →  →  → </span>stm<span class="w">·</span>&lt;&lt;<span class="w">·</span>Cvt::w2a(wMsg);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[42]</span><span><span class="w"> →  →  → </span>::LocalFree(pszMsg);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[43]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[44]</span><span><span class="w"> →  → </span><span class="k">else</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> →  →  → </span>stm<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;Unknown·error&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[48]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(module<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[49]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[50]</span><span><span class="w"> →  →  → </span>::FreeLibrary(module);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[51]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[52]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[53]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:15.151515%"></div>
+		<div class="" style="height:21.212120%"></div>
+		<div class="cov" style="height:3.030303%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="cov" style="height:1.515152%"></div>
+		<div class="" style="height:4.545455%"></div>
+		<div class="cov" style="height:1.515152%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="cov" style="height:3.030303%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="ncov" style="height:1.515152%"></div>
+		<div class="" style="height:3.030303%"></div>
+		<div class="cov" style="height:3.030303%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="cov" style="height:6.060606%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="cov" style="height:1.515152%"></div>
+		<div class="" style="height:3.030303%"></div>
+		<div class="cov" style="height:4.545455%"></div>
+		<div class="" style="height:3.030303%"></div>
+		<div class="ncov" style="height:1.515152%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="cov" style="height:1.515152%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="ncov" style="height:1.515152%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="cov" style="height:1.515152%"></div>
+		<div class="" style="height:1.515152%"></div>
+		<div class="" style="height:4.545455%"></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Win/D2d.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Win</a> - <span>D2d.h</span>
+					<span>(source / <a href="D2d.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">37</td>
+				<td class="coverageValue">39</td>
+				<td class="green coverageValue">94&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">10</td>
+				<td class="coverageValue">10</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/ComPtr.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  4]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  5]</span><span><span class="d">#include·&lt;d2d1.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  6]</span><span><span class="d">#include·&lt;d2d1_3.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  7]</span><span><span class="d">#pragma·comment(lib·,·&quot;D2d1.lib&quot;)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  8]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  9]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Win::D2d</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 10]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 11]</span><span><span class="w"> → </span><span class="k">namespace</span><span class="w">·</span>Detail</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 12]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="13"><span class="line">[ 13]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>ComPtr&lt;ID2D1Factory&gt;<span class="w">·</span>CreateFactory()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 14]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 15]</span><span><span class="w"> →  →  → </span>GLib::Win::ComPtr&lt;ID2D1Factory&gt;<span class="w">·</span>factory;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 16]</span><span><span class="w"> →  →  → </span>D2D1_FACTORY_OPTIONS<span class="w">·</span>options<span class="w">·</span>{<span class="w">·</span>D2D1_DEBUG_LEVEL_INFORMATION<span class="w">·</span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 17]</span><span><span class="w"> →  →  → </span>GLib::Win::CheckHr(::D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED,<span class="w">·</span>__uuidof(ID2D1Factory),<span class="w">·</span>&amp;options,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 18]</span><span><span class="w"> →  →  →  → </span>GLib::Win::GetAddress&lt;ID2D1Factory&gt;(factory)),<span class="w">·</span><span class="s">&quot;D2D1CreateFactory&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="19"><span class="line">[ 19]</span></a><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>factory;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 20]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 21]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 22]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 23]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Factory</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 24]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 25]</span><span><span class="w"> →  → </span>ComPtr&lt;ID2D1Factory&gt;<span class="w">·</span>factory<span class="w">·</span>{Detail::CreateFactory()};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 26]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 27]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="28"><span class="line">[ 28]</span></a><span><span class="w"> →  → </span>ComPtr&lt;ID2D1HwndRenderTarget&gt;<span class="w">·</span>CreateRenderTarget(HWND<span class="w">·</span>handle,<span class="w">·</span><span class="k">const</span><span class="w">·</span>SIZE<span class="w">·</span>&amp;<span class="w">·</span>size)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 29]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 30]</span><span><span class="w"> →  →  → </span>ComPtr&lt;ID2D1HwndRenderTarget&gt;<span class="w">·</span>renderTarget;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 31]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 32]</span><span><span class="w"> →  →  → </span>GLib::Win::WarnHr(factory-&gt;CreateHwndRenderTarget(D2D1::RenderTargetProperties(),</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 33]</span><span><span class="w"> →  →  →  → </span>D2D1::HwndRenderTargetProperties(handle,<span class="w">·</span>D2D1::SizeU(size.cx,<span class="w">·</span>size.cy)),<span class="w">·</span>GetAddress(renderTarget)),<span class="w">·</span><span class="s">&quot;CreateHwndRenderTarget&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 34]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>renderTarget;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="35"><span class="line">[ 35]</span></a><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 36]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 37]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 38]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Renderer</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 39]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 40]</span><span><span class="w"> →  → </span>Factory<span class="w">·</span>factory;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 41]</span><span><span class="w"> →  → </span>ComPtr&lt;ID2D1HwndRenderTarget&gt;<span class="w">·</span>renderTarget;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 42]</span><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span>recreated;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 43]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="44"><span class="line">[ 44]</span></a><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 45]</span><span><span class="w"> →  → </span>Renderer(Factory<span class="w">·</span>factory)<span class="w">·</span>:<span class="w">·</span>factory(std::move(factory)),<span class="w">·</span>recreated()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 46]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 47]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 48]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>Factory<span class="w">·</span>&amp;<span class="w">·</span>Factory()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 49]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 50]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>factory;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 51]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 52]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="53"><span class="line">[ 53]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Verify(HWND<span class="w">·</span>handle,<span class="w">·</span><span class="k">const</span><span class="w">·</span>SIZE<span class="w">·</span>&amp;<span class="w">·</span>size)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 54]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 55]</span><span><span class="w"> →  →  → </span><span class="k">bool</span><span class="w">·</span>recreate<span class="w">·</span>=<span class="w">·</span>!renderTarget;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 56]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(!renderTarget)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 57]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 58]</span><span><span class="w"> →  →  →  → </span>renderTarget<span class="w">·</span>=<span class="w">·</span>factory.CreateRenderTarget(handle,<span class="w">·</span>size);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 59]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 60]</span><span><span class="w"> →  →  → </span>recreated<span class="w">·</span>=<span class="w">·</span>recreate;<span class="w">·</span><span class="c">//·how·reset</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 61]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 62]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 63]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>Function&gt;<span class="w">·</span><span class="k">void</span><span class="w">·</span>CheckDevice(<span class="k">const</span><span class="w">·</span>Function<span class="w">·</span>&amp;<span class="w">·</span>function)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 64]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 65]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(recreated)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 66]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 67]</span><span><span class="w"> →  →  →  → </span>function(*<span class="k">this</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 68]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 69]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 70]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="71"><span class="line">[ 71]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Begin()<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="c">//·take·a·Labda·and·encompass·Recreate·here</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 72]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 73]</span><span><span class="w"> →  →  → </span>renderTarget-&gt;BeginDraw();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 74]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 75]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="76"><span class="line">[ 76]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>End()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 77]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 78]</span><span><span class="w"> →  →  → </span>HRESULT<span class="w">·</span>hr<span class="w">·</span>=<span class="w">·</span>renderTarget-&gt;EndDraw();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 79]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(hr<span class="w">·</span>==<span class="w">·</span>D2DERR_RECREATE_TARGET)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 80]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[ 81]</span><span><span class="w"> →  →  →  → </span>renderTarget<span class="w">·</span>=<span class="w">·</span><span class="k">nullptr</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[ 82]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 83]</span><span><span class="w"> →  →  → </span><span class="k">else</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 84]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 85]</span><span><span class="w"> →  →  →  → </span>WarnHr(hr,<span class="w">·</span><span class="s">&quot;EndDraw&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 86]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 87]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 88]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="89"><span class="line">[ 89]</span></a><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span>Resize(<span class="k">const</span><span class="w">·</span>SIZE<span class="w">·</span>&amp;<span class="w">·</span>size)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 90]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 91]</span><span><span class="w"> →  →  → </span><span class="k">bool</span><span class="w">·</span>resize<span class="w">·</span>=<span class="w">·</span>renderTarget<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 92]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(resize)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 93]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 94]</span><span><span class="w"> →  →  →  → </span>renderTarget-&gt;Resize(D2D1::SizeU(size.cx,<span class="w">·</span>size.cy));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 95]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 96]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>resize;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 97]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 98]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="99"><span class="line">[ 99]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Clear(<span class="k">const</span><span class="w">·</span>D2D1::ColorF<span class="w">·</span>&amp;<span class="w">·</span>colour)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[100]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[101]</span><span><span class="w"> →  →  → </span>renderTarget-&gt;Clear(colour);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[102]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[103]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[104]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:8.547009%"></div>
+		<div class="" style="height:11.111112%"></div>
+		<div class="cov" style="height:3.418803%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:1.709402%"></div>
+		<div class="" style="height:6.837607%"></div>
+		<div class="cov" style="height:1.709402%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:0.854701%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:2.564103%"></div>
+		<div class="" style="height:6.837607%"></div>
+		<div class="cov" style="height:1.709402%"></div>
+		<div class="" style="height:5.982906%"></div>
+		<div class="cov" style="height:2.564103%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:0.854701%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:1.709402%"></div>
+		<div class="" style="height:8.547009%"></div>
+		<div class="cov" style="height:2.564103%"></div>
+		<div class="" style="height:1.709402%"></div>
+		<div class="cov" style="height:2.564103%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="ncov" style="height:1.709402%"></div>
+		<div class="" style="height:1.709402%"></div>
+		<div class="cov" style="height:0.854701%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:0.854701%"></div>
+		<div class="" style="height:1.709402%"></div>
+		<div class="cov" style="height:2.564103%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:0.854701%"></div>
+		<div class="" style="height:0.854701%"></div>
+		<div class="cov" style="height:1.709402%"></div>
+		<div class="" style="height:1.709402%"></div>
+		<div class="cov" style="height:2.564103%"></div>
+		<div class="" style="height:1.709402%"></div>
+		<div class="" style="height:2.564103%"></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - GLib/filelogger.h</title>
+	<link rel="stylesheet" type="text/css" href="../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../index.html">TopLevel</a> - <a href="index.html">GLib</a> - <span>filelogger.h</span>
+					<span>(source / <a href="filelogger.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">2</td>
+				<td class="coverageValue">2</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">1</td>
+				<td class="coverageValue">1</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#ifndef·FILE_LOGGER_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span><span class="d">#define·FILE_LOGGER_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span><span class="d">#include·&quot;logstate.h&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span><span class="d">#include·&quot;streaminfo.h&quot;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/flogging.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span><span class="d">#include·&lt;mutex&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span><span class="k">class</span><span class="w">·</span>FileLogger</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>HeaderFooterSeparator<span class="w">·</span>=<span class="w">·</span><span class="s">&quot;------------------------------------------------&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>Delimiter<span class="w">·</span>=<span class="w">·</span><span class="s">&quot;·:·&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[15]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>THREAD_ID_WIDTH<span class="w">·</span>=<span class="w">·</span>5;<span class="w">·</span><span class="c">//·make·dynamic</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>LEVEL_WIDTH<span class="w">·</span>=<span class="w">·</span>8;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>PREFIX_WIDTH<span class="w">·</span>=<span class="w">·</span>16;<span class="w">·</span><span class="c">//·make·dynamic</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[18]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="t">size_t</span><span class="w">·</span>DefaultMaxFileSize<span class="w">·</span>=<span class="w">·</span>5<span class="w">·</span>*<span class="w">·</span>1024<span class="w">·</span>*<span class="w">·</span>1024;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[19]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="t">size_t</span><span class="w">·</span>ReserveDiskSpace<span class="w">·</span>=<span class="w">·</span>10<span class="w">·</span>*<span class="w">·</span>1024<span class="w">·</span>*<span class="w">·</span>1024;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[20]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> → </span><span class="k">friend</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>GLib::Flog::Log;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> → </span><span class="k">friend</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>GLib::Flog::LogManager;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[23]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[24]</span><span><span class="w"> → </span>std::<span class="t">string</span><span class="w">·</span><span class="k">const</span><span class="w">·</span>baseFileName;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> → </span>GLib::Compat::filesystem::path<span class="w">·</span><span class="k">const</span><span class="w">·</span>path;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> → </span>std::mutex<span class="w">·</span>streamMonitor;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="27"><span class="line">[27]</span></a><span><span class="w"> → </span>StreamInfo<span class="w">·</span>streamInfo;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> → </span>GLib::Flog::Level<span class="w">·</span>logLevel<span class="w">·</span>=<span class="w">·</span>GLib::Flog::Level::Info;<span class="w">·</span><span class="c">//·config</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[29]</span><span><span class="w"> → </span><span class="t">size_t</span><span class="w">·</span>maxFileSize<span class="w">·</span>=<span class="w">·</span>DefaultMaxFileSize;<span class="w">·</span><span class="c">//·config</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">thread_local</span><span class="w">·</span>LogState<span class="w">·</span>logState;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[31]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[32]</span><span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> → </span>FileLogger();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> → </span>FileLogger(<span class="k">const</span><span class="w">·</span>FileLogger&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> → </span>FileLogger(FileLogger&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> → </span>FileLogger&amp;<span class="w">·</span><span class="k">operator</span>=(<span class="k">const</span><span class="w">·</span>FileLogger&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span><span class="w"> → </span>FileLogger&amp;<span class="w">·</span><span class="k">operator</span>=(FileLogger&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[38]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[39]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>Write(<span class="k">char</span><span class="w">·</span>c);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[40]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="k">private</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[42]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>Write(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>message);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[43]</span><span><span class="w"> → </span>~FileLogger();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[44]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> → </span>StreamInfo<span class="w">·</span>GetStream()<span class="w">·</span><span class="k">const</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> → </span><span class="k">void</span><span class="w">·</span>InternalWrite(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>message);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> → </span><span class="k">void</span><span class="w">·</span>WriteToStream(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span>std::<span class="t">string_view</span><span class="w">·</span>message);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[48]</span><span><span class="w"> → </span><span class="k">void</span><span class="w">·</span>EnsureStreamIsOpen();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[49]</span><span><span class="w"> → </span><span class="k">void</span><span class="w">·</span>HandleFileRollover(<span class="t">size_t</span><span class="w">·</span>newEntrySize);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[50]</span><span><span class="w"> → </span><span class="k">void</span><span class="w">·</span>CloseStream()<span class="w">·</span><span class="k">noexcept</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[51]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>WriteHeader(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>writer);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[52]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>WriteFooter(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>writer);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[53]</span><span><span class="w"> → </span><span class="k">bool</span><span class="w">·</span>ResourcesAvailable(<span class="t">size_t</span><span class="w">·</span>newEntrySize)<span class="w">·</span><span class="k">const</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[54]</span><span><span class="w"> → </span><span class="c">//std::string·RenameOldFile(const·std::string·&amp;·oldFileName)·const;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[55]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[56]</span><span><span class="w"> → </span><span class="c">//·improve</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[57]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>FileLogger<span class="w">·</span>&amp;<span class="w">·</span>Instance();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[58]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>Stream();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[59]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>GLib::Flog::Level<span class="w">·</span>SetLogLevel(GLib::Flog::Level<span class="w">·</span>level);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[60]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="t">size_t</span><span class="w">·</span>SetMaxFileSize(<span class="t">size_t</span><span class="w">·</span>size);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[61]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>TranslateLevel(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>stream,<span class="w">·</span>GLib::Flog::Level<span class="w">·</span>level);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[62]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>ThreadName(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>stream,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>threadName);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[63]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">unsigned</span><span class="w">·</span><span class="k">int</span><span class="w">·</span>GetDate();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[64]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span>uintmax_t<span class="w">·</span>GetFreeDiskSpace(<span class="k">const</span><span class="w">·</span>GLib::Compat::filesystem::path<span class="w">·</span>&amp;<span class="w">·</span>path);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[65]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[66]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>CommitPendingScope();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[67]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>ScopeStart(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>scope,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>stem);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[68]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>CommitBuffer(GLib::Flog::Level<span class="w">·</span>level,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[69]</span><span><span class="w"> → </span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>ScopeEnd(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>prefix);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[70]</span><span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[71]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[72]</span><span><span class="d">#endif·</span><span class="c">//·FILE_LOGGER_H</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[73]</span><span></span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:11.627907%"></div>
+		<div class="" style="height:31.395348%"></div>
+		<div class="cov" style="height:2.325581%"></div>
+		<div class="" style="height:51.162788%"></div>
+		<div class="" style="height:3.488372%"></div>
+	</div>
+
+</body>
+</html>

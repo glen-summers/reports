@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Win/ComPtr.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Win</a> - <span>ComPtr.h</span>
+					<span>(source / <a href="ComPtr.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">84</td>
+				<td class="coverageValue">90</td>
+				<td class="green coverageValue">93&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">28</td>
+				<td class="coverageValue">29</td>
+				<td class="green coverageValue">96&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/ComErrorCheck.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  4]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/Transfer.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  5]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/WinException.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  6]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  7]</span><span><span class="d">#ifdef·COM_PTR_DEBUG</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  8]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/DebugStream.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  9]</span><span><span class="d">#endif</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 10]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 11]</span><span><span class="d">#include·&lt;objbase.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 12]</span><span><span class="d">#include·&lt;type_traits&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 13]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 14]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Win</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 15]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 16]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">class</span><span class="w">·</span>ComPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 17]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 18]</span><span><span class="w"> → </span><span class="k">namespace</span><span class="w">·</span>ComPtrDetail</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 19]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 20]</span><span><span class="w"> →  → </span><span class="k">constexpr</span><span class="w">·</span>DWORD<span class="w">·</span>ContextAll<span class="w">·</span>=<span class="w">·</span>CLSCTX_ALL;<span class="w">·</span><span class="c">//·NOLINT(hicpp-signed-bitwise)·baad·macro</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 21]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 22]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 23]</span><span><span class="w"> →  → </span><span class="k">class</span><span class="w">·</span>Restricted<span class="w">·</span>:<span class="w">·</span><span class="k">public</span><span class="w">·</span>T</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 24]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 25]</span><span><span class="w"> →  → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 26]</span><span><span class="w"> →  →  → </span>Restricted()<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 27]</span><span><span class="w"> →  →  → </span>Restricted(<span class="k">const</span><span class="w">·</span>Restricted<span class="w">·</span>&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 28]</span><span><span class="w"> →  →  → </span>Restricted(Restricted<span class="w">·</span>&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 29]</span><span><span class="w"> →  →  → </span>Restricted<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span><span class="w">·</span>=<span class="w">·</span>(<span class="k">const</span><span class="w">·</span>Restricted<span class="w">·</span>&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 30]</span><span><span class="w"> →  →  → </span>Restricted<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span><span class="w">·</span>=<span class="w">·</span>(Restricted<span class="w">·</span>&amp;&amp;)<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 31]</span><span><span class="w"> →  →  → </span>~Restricted()<span class="w">·</span>=<span class="w">·</span><span class="k">delete</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 32]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 33]</span><span><span class="w"> →  → </span><span class="k">private</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 34]</span><span><span class="w"> →  →  → </span>ULONG<span class="w">·</span>STDMETHODCALLTYPE<span class="w">·</span>AddRef()<span class="w">·</span><span class="k">final</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 35]</span><span><span class="w"> →  →  → </span>ULONG<span class="w">·</span>STDMETHODCALLTYPE<span class="w">·</span>Release()<span class="w">·</span><span class="k">final</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 36]</span><span><span class="w"> →  → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 37]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 38]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 39]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="40"><span class="line">[ 40]</span></a><span><span class="w"> → </span><span class="k">auto</span><span class="w">·</span>GetAddress(ComPtr&lt;T&gt;<span class="w">·</span>&amp;<span class="w">·</span>value)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 41]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 42]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>Transfer&lt;ComPtr&lt;T&gt;,<span class="w">·</span>T*&gt;(value);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 43]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 44]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 45]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>Target,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>Source&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="46"><span class="line">[ 46]</span></a><span><span class="w"> → </span>ComPtr&lt;Target&gt;<span class="w">·</span>ComCast(<span class="k">const</span><span class="w">·</span>Source<span class="w">·</span>&amp;<span class="w">·</span>source)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 47]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 48]</span><span><span class="w"> →  → </span>ComPtr&lt;Target&gt;<span class="w">·</span>value;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 49]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(source)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 50]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 51]</span><span><span class="w"> →  →  → </span>CheckHr(source-&gt;QueryInterface(__uuidof(Target),<span class="w">·</span>GetAddress(value)),<span class="w">·</span><span class="s">&quot;QueryInterface&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 52]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 53]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>value;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 54]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 55]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 56]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 57]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>ComPtr</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 58]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 59]</span><span><span class="w"> →  → </span><span class="k">template</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;<span class="w">·</span><span class="k">friend</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>ComPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 60]</span><span><span class="w"> →  → </span><span class="k">template</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;<span class="w">·</span><span class="k">friend</span><span class="w">·</span>U<span class="w">·</span>*<span class="w">·</span>Get(ComPtr&lt;U&gt;<span class="w">·</span>&amp;<span class="w">·</span>p)<span class="w">·</span><span class="k">noexcept</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 61]</span><span><span class="w"> →  → </span><span class="k">template</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;<span class="w">·</span><span class="k">friend</span><span class="w">·</span><span class="k">const</span><span class="w">·</span>U<span class="w">·</span>*<span class="w">·</span>Get(<span class="k">const</span><span class="w">·</span>ComPtr&lt;U&gt;<span class="w">·</span>&amp;<span class="w">·</span>p)<span class="w">·</span><span class="k">noexcept</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="62"><span class="line">[ 62]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 63]</span><span><span class="w"> →  → </span>T<span class="w">·</span>*<span class="w">·</span>p<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 64]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 65]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 66]</span><span><span class="w"> →  → </span>ComPtr()<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>=<span class="w">·</span><span class="k">default</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 67]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 68]</span><span><span class="w"> →  → </span><span class="k">explicit</span><span class="w">·</span>ComPtr(std::nullptr_t)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 69]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 70]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 71]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="72"><span class="line">[ 72]</span></a><span><span class="w"> →  → </span><span class="k">explicit</span><span class="w">·</span>ComPtr(U<span class="w">·</span>*<span class="w">·</span>u)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 73]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>p(InternalAddRef(u))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 74]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 75]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 76]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="77"><span class="line">[ 77]</span></a><span><span class="w"> →  → </span>ComPtr(<span class="k">const</span><span class="w">·</span>ComPtr&lt;U&gt;<span class="w">·</span>&amp;<span class="w">·</span>other)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 78]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>p(InternalAddRef(other.p))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 79]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 80]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="81"><span class="line">[ 81]</span></a><span><span class="w"> →  → </span>ComPtr(<span class="k">const</span><span class="w">·</span>ComPtr<span class="w">·</span>&amp;<span class="w">·</span>other)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 82]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>p(InternalAddRef(other.p))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 83]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 84]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 85]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="86"><span class="line">[ 86]</span></a><span><span class="w"> →  → </span>ComPtr(ComPtr&lt;U&gt;<span class="w">·</span>&amp;&amp;<span class="w">·</span>right)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 87]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>p(std::exchange(right.p,<span class="w">·</span><span class="k">nullptr</span>))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 88]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 89]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="90"><span class="line">[ 90]</span></a><span><span class="w"> →  → </span>ComPtr(ComPtr<span class="w">·</span>&amp;&amp;<span class="w">·</span>right)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 91]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>p(std::exchange(right.p,<span class="w">·</span><span class="k">nullptr</span>))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 92]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 93]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="94"><span class="line">[ 94]</span></a><span><span class="w"> →  → </span>~ComPtr()<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 95]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 96]</span><span><span class="w"> →  →  → </span>InternalRelease(std::exchange(p,<span class="w">·</span><span class="k">nullptr</span>));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 97]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 98]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="99"><span class="line">[ 99]</span></a><span><span class="w"> →  → </span>ComPtr<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>=(nullptr_t)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[100]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[101]</span><span><span class="w"> →  →  → </span>ComPtr<span class="w">·</span>tmp;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[102]</span><span><span class="w"> →  →  → </span>std::swap(tmp.p,<span class="w">·</span>p);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[103]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[104]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[105]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="106"><span class="line">[106]</span></a><span><span class="w"> →  → </span>ComPtr<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>=(<span class="k">const</span><span class="w">·</span>ComPtr<span class="w">·</span>&amp;<span class="w">·</span>right)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[107]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[108]</span><span><span class="w"> →  →  → </span>ComPtr<span class="w">·</span>tmp(right);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[109]</span><span><span class="w"> →  →  → </span>std::swap(tmp.p,<span class="w">·</span>p);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[110]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[111]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[112]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[113]</span><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="114"><span class="line">[114]</span></a><span><span class="w"> →  → </span>ComPtr<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>=(<span class="k">const</span><span class="w">·</span>ComPtr&lt;U&gt;<span class="w">·</span>&amp;<span class="w">·</span>right)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[115]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[116]</span><span><span class="w"> →  →  → </span>ComPtr<span class="w">·</span>tmp(right);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[117]</span><span><span class="w"> →  →  → </span>std::swap(tmp.p,<span class="w">·</span>p);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[118]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[119]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[120]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="121"><span class="line">[121]</span></a><span><span class="w"> →  → </span>ComPtr<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>=(ComPtr<span class="w">·</span>&amp;&amp;<span class="w">·</span>right)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[122]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[123]</span><span><span class="w"> →  →  → </span>ComPtr<span class="w">·</span>tmp(std::move(right));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[124]</span><span><span class="w"> →  →  → </span>std::swap(tmp.p,<span class="w">·</span>p);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[125]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[126]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[127]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[128]</span><span><span class="w"> →  → </span><span class="k">template</span>&lt;<span class="k">typename</span><span class="w">·</span>U&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="129"><span class="line">[129]</span></a><span><span class="w"> →  → </span>ComPtr<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>=(ComPtr&lt;U&gt;<span class="w">·</span>&amp;&amp;<span class="w">·</span>right)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[130]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[131]</span><span><span class="w"> →  →  → </span>ComPtr<span class="w">·</span>tmp(std::move(right));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[132]</span><span><span class="w"> →  →  → </span>std::swap(tmp.p,<span class="w">·</span>p);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[133]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[134]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[135]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="136"><span class="line">[136]</span></a><span><span class="w"> →  → </span>ComPtrDetail::Restricted&lt;T&gt;<span class="w">·</span>*<span class="w">·</span><span class="k">operator</span>-&gt;()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[137]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[138]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(*<span class="k">this</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[139]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[140]</span><span><span class="w"> →  →  →  → </span><span class="k">return</span><span class="w">·</span><span class="k">static_cast</span>&lt;<span class="k">typename</span><span class="w">·</span>ComPtrDetail::Restricted&lt;T&gt;*&gt;(p);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[141]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[142]</span><span><span class="w"> →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(<span class="s">&quot;nullptr&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[143]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[144]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="145"><span class="line">[145]</span></a><span><span class="w"> →  → </span><span class="k">explicit</span><span class="w">·</span><span class="k">operator</span><span class="w">·</span><span class="k">bool</span>()<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[146]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[147]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>p<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[148]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[149]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="150"><span class="line">[150]</span></a><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>ComPtr<span class="w">·</span>Attach(T<span class="w">·</span>*<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[151]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[152]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>ComPtr{value,<span class="w">·</span>{}};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[153]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[154]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[155]</span><span><span class="w"> → </span><span class="k">private</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="156"><span class="line">[156]</span></a><span><span class="w"> →  → </span>ComPtr(T<span class="w">·</span>*<span class="w">·</span>other,<span class="w">·</span><span class="k">bool</span><span class="w">·</span>ignored)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[157]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>p(other)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[158]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[159]</span><span><span class="w"> →  →  → </span>(<span class="k">void</span>)ignored;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[160]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[161]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="162"><span class="line">[162]</span></a><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">static</span><span class="w">·</span>T<span class="w">·</span>*<span class="w">·</span>InternalAddRef(T<span class="w">·</span>*<span class="w">·</span>value)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[163]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[164]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>value<span class="w">·</span>?<span class="w">·</span>value-&gt;AddRef(),<span class="w">·</span>value<span class="w">·</span>:<span class="w">·</span>value;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[165]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[166]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="167"><span class="line">[167]</span></a><span><span class="w"> →  → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">static</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>InternalRelease(T<span class="w">·</span>*<span class="w">·</span>value)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[168]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[169]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(value<span class="w">·</span>&amp;&amp;<span class="w">·</span>value-&gt;Release()<span class="w">·</span>==<span class="w">·</span>0)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[170]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[171]</span><span><span class="d">#ifdef·COM_PTR_DEBUG</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[172]</span><span><span class="w"> →  →  →  → </span>Debug::Stream()<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="k">typeid</span>(T).name()<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·deleted&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[173]</span><span><span class="d">#endif</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[174]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[175]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[176]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="177"><span class="line">[177]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="178"><span class="line">[178]</span></a><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">class</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span>==(<span class="k">const</span><span class="w">·</span>ComPtr&lt;T&gt;<span class="w">·</span>&amp;<span class="w">·</span>p,<span class="w">·</span>nullptr_t)<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>!p;<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="179"><span class="line">[179]</span></a><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">class</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span>==(nullptr_t,<span class="w">·</span><span class="k">const</span><span class="w">·</span>ComPtr&lt;T&gt;<span class="w">·</span>&amp;<span class="w">·</span>p)<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>!p;<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="180"><span class="line">[180]</span></a><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">class</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span>!=(<span class="k">const</span><span class="w">·</span>ComPtr&lt;T&gt;<span class="w">·</span>&amp;<span class="w">·</span>p,<span class="w">·</span>nullptr_t)<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>!!p;<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[181]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">class</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span>!=(nullptr_t,<span class="w">·</span><span class="k">const</span><span class="w">·</span>ComPtr&lt;T&gt;<span class="w">·</span>&amp;<span class="w">·</span>p)<span class="w">·</span><span class="k">noexcept</span><span class="w">·</span>{<span class="w">·</span><span class="k">return</span><span class="w">·</span>!!p;<span class="w">·</span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[182]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="183"><span class="line">[183]</span></a><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;<span class="w">·</span>T<span class="w">·</span>*<span class="w">·</span>Get(ComPtr&lt;T&gt;<span class="w">·</span>&amp;<span class="w">·</span>p)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[184]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[185]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>p.p;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[186]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[187]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="188"><span class="line">[188]</span></a><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T&gt;<span class="w">·</span><span class="k">const</span><span class="w">·</span>T<span class="w">·</span>*<span class="w">·</span>Get(<span class="k">const</span><span class="w">·</span>ComPtr&lt;T&gt;<span class="w">·</span>&amp;<span class="w">·</span>p)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[189]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[190]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>p.p;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[191]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[192]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[193]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>I,<span class="w">·</span><span class="k">typename</span>...<span class="w">·</span>Args&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="194"><span class="line">[194]</span></a><span><span class="w"> → </span>ComPtr&lt;I&gt;<span class="w">·</span>Make(Args<span class="w">·</span>&amp;&amp;<span class="w">·</span>...<span class="w">·</span>args)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[195]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[196]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>ComPtr&lt;I&gt;::Attach(<span class="k">static_cast</span>&lt;I*&gt;(<span class="k">new</span><span class="w">·</span>T(std::forward&lt;Args&gt;(args)...)));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[197]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[198]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[199]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T,<span class="w">·</span><span class="k">typename</span>...<span class="w">·</span>Args&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="200"><span class="line">[200]</span></a><span><span class="w"> → </span>ComPtr&lt;<span class="k">typename</span><span class="w">·</span>T::DefaultInterface&gt;<span class="w">·</span>Make(Args<span class="w">·</span>&amp;&amp;<span class="w">·</span>...<span class="w">·</span>args)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[201]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[202]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>Make&lt;T,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>T::DefaultInterface&gt;(std::forward&lt;Args&gt;(args)...);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[203]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[204]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[205]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T1,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>T2&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="206"><span class="line">[206]</span></a><span><span class="w"> → </span><span class="k">inline</span><span class="w">·</span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span>==(<span class="k">const</span><span class="w">·</span>ComPtr&lt;T1&gt;<span class="w">·</span>&amp;<span class="w">·</span>t1,<span class="w">·</span><span class="k">const</span><span class="w">·</span>ComPtr&lt;T2&gt;<span class="w">·</span>&amp;<span class="w">·</span>t2)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[207]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[208]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>Get(ComCast&lt;IUnknown&gt;(t1))<span class="w">·</span>==<span class="w">·</span>Get(ComCast&lt;IUnknown&gt;(t2));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[209]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[210]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:4.484305%"></div>
+		<div class="" style="height:17.937220%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:0.448430%"></div>
+		<div class="cov" style="height:0.448430%"></div>
+		<div class="" style="height:0.448430%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:3.587444%"></div>
+		<div class="cov" style="height:0.448430%"></div>
+		<div class="" style="height:1.793722%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="ncov" style="height:2.242152%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:2.242152%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:2.242152%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:2.242152%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:2.242152%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:0.448430%"></div>
+		<div class="cov" style="height:0.448430%"></div>
+		<div class="" style="height:0.448430%"></div>
+		<div class="ncov" style="height:0.448430%"></div>
+		<div class="cov" style="height:0.448430%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:0.448430%"></div>
+		<div class="cov" style="height:0.448430%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:0.896861%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:0.448430%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:0.448430%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:1.793722%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:0.896861%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:1.345291%"></div>
+		<div class="cov" style="height:1.345291%"></div>
+		<div class="" style="height:0.448430%"></div>
+		<div class="" style="height:1.345291%"></div>
+	</div>
+
+</body>
+</html>

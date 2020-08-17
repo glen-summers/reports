@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/ConsecutiveFind.h</title>
+	<link rel="stylesheet" type="text/css" href="../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../index.html">TopLevel</a> - <a href="index.html">include/GLib</a> - <span>ConsecutiveFind.h</span>
+					<span>(source / <a href="ConsecutiveFind.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">18</td>
+				<td class="coverageValue">18</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">4</td>
+				<td class="coverageValue">4</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Util</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span><span class="w"> → </span><span class="k">template</span>&lt;<span class="k">typename</span><span class="w">·</span>InputIt,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>T&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="6"><span class="line">[ 6]</span></a><span><span class="w"> → </span><span class="k">constexpr</span><span class="w">·</span>InputIt<span class="w">·</span>FindNot(InputIt<span class="w">·</span>first,<span class="w">·</span>InputIt<span class="w">·</span>last,<span class="w">·</span><span class="k">const</span><span class="w">·</span>T<span class="w">·</span>&amp;<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span><span class="w"> →  → </span><span class="k">while</span><span class="w">·</span>(first<span class="w">·</span>!=<span class="w">·</span>last<span class="w">·</span>&amp;&amp;<span class="w">·</span>*first<span class="w">·</span>==<span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[10]</span><span><span class="w"> →  →  → </span>++first;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[11]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[12]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>first;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[15]</span><span><span class="w"> → </span><span class="k">template</span>&lt;<span class="k">typename</span><span class="w">·</span>InputIt,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>T,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>BinaryPredicate&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="16"><span class="line">[16]</span></a><span><span class="w"> → </span><span class="k">constexpr</span><span class="w">·</span>InputIt<span class="w">·</span>FindNextIf(InputIt<span class="w">·</span>first,<span class="w">·</span>InputIt<span class="w">·</span>last,<span class="w">·</span><span class="k">const</span><span class="w">·</span>T<span class="w">·</span>&amp;<span class="w">·</span>value,<span class="w">·</span>BinaryPredicate<span class="w">·</span>predicate)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[18]</span><span><span class="w"> →  → </span><span class="k">while</span><span class="w">·</span>(first<span class="w">·</span>!=<span class="w">·</span>last<span class="w">·</span>&amp;&amp;<span class="w">·</span>!predicate(*first<span class="w">·</span>,<span class="w">·</span>value))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[19]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[20]</span><span><span class="w"> →  →  → </span>++first;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>first;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[23]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[24]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>Iterator&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="26"><span class="line">[26]</span></a><span><span class="w"> → </span>Iterator<span class="w">·</span>ConsecutiveFind(Iterator<span class="w">·</span>first,<span class="w">·</span>Iterator<span class="w">·</span>last)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[27]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>FindNot(std::next(first),<span class="w">·</span>last,<span class="w">·</span>*first);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[29]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[30]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>Iterator,<span class="w">·</span><span class="k">typename</span><span class="w">·</span>Pred&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="32"><span class="line">[32]</span></a><span><span class="w"> → </span>Iterator<span class="w">·</span>ConsecutiveFind(Iterator<span class="w">·</span>first,<span class="w">·</span>Iterator<span class="w">·</span>end,<span class="w">·</span>Pred<span class="w">·</span>pred)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>FindNextIf(std::next(first),<span class="w">·</span>end,<span class="w">·</span>*first,<span class="w">·</span>pred);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[36]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:20.408163%"></div>
+		<div class="" style="height:12.244898%"></div>
+		<div class="cov" style="height:4.081633%"></div>
+		<div class="" style="height:2.040816%"></div>
+		<div class="cov" style="height:8.163265%"></div>
+		<div class="" style="height:6.122449%"></div>
+		<div class="cov" style="height:4.081633%"></div>
+		<div class="" style="height:2.040816%"></div>
+		<div class="cov" style="height:8.163265%"></div>
+		<div class="" style="height:6.122449%"></div>
+		<div class="cov" style="height:6.122449%"></div>
+		<div class="" style="height:6.122449%"></div>
+		<div class="cov" style="height:6.122449%"></div>
+		<div class="" style="height:2.040816%"></div>
+		<div class="" style="height:6.122449%"></div>
+	</div>
+
+</body>
+</html>

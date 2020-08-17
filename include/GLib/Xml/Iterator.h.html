@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Xml/Iterator.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Xml</a> - <span>Iterator.h</span>
+					<span>(source / <a href="Iterator.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">139</td>
+				<td class="coverageValue">142</td>
+				<td class="green coverageValue">97&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">16</td>
+				<td class="coverageValue">16</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Xml</span><span class="d">/Element.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  4]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Xml</span><span class="d">/NameSpaceManager.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  5]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Xml</span><span class="d">/StateEngine.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  6]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  7]</span><span><span class="d">#include·&lt;iterator&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  8]</span><span><span class="d">#include·&lt;sstream&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[  9]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 10]</span><span><span class="c">/*</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 11]</span><span><span class="c">Design:</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 12]</span><span><span class="c">xml·input·is·a·contiguous·sequence·of·utf8·characters</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 13]</span><span><span class="c">string_view&apos;s·are·used·to·hold·pieces·of·the·xml·input·to·avoid·copying</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 14]</span><span><span class="c">separate·attribute·iterator·exposed,·enumerated·first·for·namespaces·then·for·values</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 15]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 16]</span><span><span class="c">todo:</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 17]</span><span><span class="c">improve·error·msgs·to·include·error·detail·line\column·numbers</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 18]</span><span><span class="c">default·namespace</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 19]</span><span><span class="c">standard·entities</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 20]</span><span><span class="c">*/</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 21]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 22]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Xml</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 23]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 24]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Iterator</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 25]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 26]</span><span><span class="w"> →  → </span><span class="k">friend</span><span class="w">·</span><span class="k">class</span><span class="w">·</span>AttributeIterator;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 27]</span><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span><span class="k">constexpr</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>MinPrintable<span class="w">·</span>=<span class="w">·</span>0x20;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 28]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 29]</span><span><span class="w"> →  → </span>StateEngine<span class="w">·</span>engine;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="30"><span class="line">[ 30]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 31]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>ptr<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 32]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>end<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 33]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>lastPtr<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 34]</span><span><span class="w"> →  → </span>NameSpaceManager<span class="w">·</span>*<span class="w">·</span>manager<span class="w">·</span>=<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 35]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 36]</span><span><span class="w"> →  → </span><span class="c">///////////·element·working·data,·could·just·use·element·storage</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 37]</span><span><span class="w"> →  → </span>ElementType<span class="w">·</span>elementType<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 38]</span><span><span class="w"> →  → </span>Utils::PtrPair<span class="w">·</span>elementName;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 39]</span><span><span class="w"> →  → </span>Utils::PtrPair<span class="w">·</span>attributes;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 40]</span><span><span class="w"> →  → </span>Utils::PtrPair<span class="w">·</span>attributeName;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 41]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 42]</span><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>attributeValueStart<span class="w">·</span>{};<span class="w">·</span><span class="c">//·can·use·just·one·start·Ptr?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 43]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 44]</span><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span>contentClosed<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 45]</span><span><span class="w"> →  → </span><span class="c">///////////</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 46]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 47]</span><span><span class="w"> →  → </span>Element<span class="w">·</span>element;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 48]</span><span><span class="w"> →  → </span>std::<span class="t">stack</span>&lt;std::<span class="t">string_view</span>&gt;<span class="w">·</span>elementStack;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 49]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 50]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 51]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>iterator_category<span class="w">·</span>=<span class="w">·</span>std::forward_iterator_tag;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 52]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>value_type<span class="w">·</span>=<span class="w">·</span>Element;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 53]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>difference_type<span class="w">·</span>=<span class="w">·</span><span class="k">void</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 54]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>pointer<span class="w">·</span>=<span class="w">·</span><span class="k">void</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 55]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>reference<span class="w">·</span>=<span class="w">·</span><span class="k">void</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 56]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 57]</span><span><span class="w"> →  → </span>Iterator(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>begin,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>end,<span class="w">·</span>NameSpaceManager<span class="w">·</span>*<span class="w">·</span>manager)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 58]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>ptr(begin)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 59]</span><span><span class="w"> →  →  → </span>,<span class="w">·</span>end(end)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 60]</span><span><span class="w"> →  →  → </span>,<span class="w">·</span>lastPtr(begin)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 61]</span><span><span class="w"> →  →  → </span>,<span class="w">·</span>manager(manager)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 62]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 63]</span><span><span class="w"> →  →  → </span>Advance();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 64]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 65]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 66]</span><span><span class="w"> →  → </span>Iterator()<span class="w">·</span>=<span class="w">·</span><span class="k">default</span>;<span class="w">·</span><span class="c">//·end</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 67]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="68"><span class="line">[ 68]</span></a><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span>==(<span class="k">const</span><span class="w">·</span>Iterator<span class="w">·</span>&amp;<span class="w">·</span>other)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 69]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 70]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>lastPtr<span class="w">·</span>==<span class="w">·</span>other.lastPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 71]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 72]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="73"><span class="line">[ 73]</span></a><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span><span class="k">operator</span>!=(<span class="k">const</span><span class="w">·</span>Iterator<span class="w">·</span>&amp;<span class="w">·</span>it)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 74]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 75]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>!(*<span class="k">this</span><span class="w">·</span>==<span class="w">·</span>it);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 76]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 77]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="78"><span class="line">[ 78]</span></a><span><span class="w"> →  → </span>Iterator<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>++()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 79]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 80]</span><span><span class="w"> →  →  → </span>Advance();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 81]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>*<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 82]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 83]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="84"><span class="line">[ 84]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>Element<span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>*()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 85]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 86]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>element;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 87]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 88]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="89"><span class="line">[ 89]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>Element<span class="w">·</span>*<span class="w">·</span><span class="k">operator</span>-&gt;()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 90]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 91]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>&amp;element;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 92]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 93]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 94]</span><span><span class="w"> → </span><span class="k">private</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="95"><span class="line">[ 95]</span></a><span><span class="w"> →  → </span>[[noreturn]]<span class="w">·</span><span class="k">void</span><span class="w">·</span>IllegalCharacter(<span class="k">char</span><span class="w">·</span>c)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 96]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 97]</span><span><span class="w"> →  →  → </span>std::<span class="t">ostringstream</span><span class="w">·</span>s;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 98]</span><span><span class="w"> →  →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;Illegal·character:·&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[ 99]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(c<span class="w">·</span>&gt;=<span class="w">·</span>MinPrintable)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[100]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[101]</span><span><span class="w"> →  →  →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&apos;\&apos;&apos;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>c<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;&apos;·&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[102]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[103]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[104]</span><span><span class="w"> →  →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;(0x&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::hex<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="k">static_cast</span>&lt;<span class="k">unsigned</span>&gt;(c)<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::dec<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;)&quot;</span>;<span class="w">·</span><span class="c">//·+lineNumber?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[105]</span><span><span class="w"> →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(s.str());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[106]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[107]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="108"><span class="line">[108]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Advance()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[109]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[110]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(lastPtr<span class="w">·</span>==<span class="w">·</span><span class="k">nullptr</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[111]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[112]</span><span><span class="w"> →  →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(<span class="s">&quot;++end&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[113]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[114]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[115]</span><span><span class="w"> →  →  → </span><span class="k">for</span><span class="w">·</span>(;;)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[116]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[117]</span><span><span class="w"> →  →  →  → </span><span class="k">if</span><span class="w">·</span>(ptr<span class="w">·</span>==<span class="w">·</span>end)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[118]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[119]</span><span><span class="w"> →  →  →  →  → </span>lastPtr<span class="w">·</span>=<span class="w">·</span><span class="k">nullptr</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[120]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(!engine.HasRootElement())</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[121]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[122]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(<span class="s">&quot;No·root·element&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[123]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[124]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[125]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(engine.GetState()<span class="w">·</span>!=<span class="w">·</span>Xml::State::Start<span class="w">·</span>||<span class="w">·</span>!elementStack.empty())</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[126]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[127]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(<span class="s">&quot;Xml·not·closed&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[128]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[129]</span><span><span class="w"> →  →  →  →  → </span><span class="k">return</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[130]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[131]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[132]</span><span><span class="w"> →  →  →  → </span><span class="k">const</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>oldPtr<span class="w">·</span>=<span class="w">·</span>ptr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[133]</span><span><span class="w"> →  →  →  → </span><span class="k">const</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>oldState<span class="w">·</span>=<span class="w">·</span>engine.GetState();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[134]</span><span><span class="w"> →  →  →  → </span><span class="k">const</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>newState<span class="w">·</span>=<span class="w">·</span>engine.Push(*ptr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[135]</span><span><span class="w"> →  →  →  → </span><span class="k">if</span><span class="w">·</span>(newState<span class="w">·</span>==<span class="w">·</span>Xml::State::Error)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[136]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[137]</span><span><span class="w"> →  →  →  →  → </span>IllegalCharacter(*ptr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[138]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[139]</span><span><span class="w"> →  →  →  → </span>++ptr;<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-pro-bounds-pointer-arithmetic)·todo·use·std::span</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[140]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[141]</span><span><span class="w"> →  →  →  → </span><span class="k">if</span><span class="w">·</span>(newState<span class="w">·</span>!=<span class="w">·</span>oldState)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[142]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[143]</span><span><span class="w"> →  →  →  →  → </span><span class="k">switch</span><span class="w">·</span>(oldState)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[144]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[145]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::Text:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[146]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[147]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(newState<span class="w">·</span>==<span class="w">·</span>Xml::State::TextEntity)<span class="w">·</span><span class="c">//·hack</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[148]</span><span><span class="w"> →  →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[149]</span><span><span class="w"> →  →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[150]</span><span><span class="w"> →  →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[151]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[152]</span><span><span class="w"> →  →  →  →  →  →  → </span>element<span class="w">·</span>=<span class="w">·</span>{Xml::ElementType::Text,<span class="w">·</span>Utils::ToStringView(lastPtr,<span class="w">·</span>oldPtr)};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[153]</span><span><span class="w"> →  →  →  →  →  →  → </span>lastPtr<span class="w">·</span>=<span class="w">·</span>oldPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[154]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">return</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[155]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[156]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[157]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::CommentEnd:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[158]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[159]</span><span><span class="w"> →  →  →  →  →  →  → </span>element<span class="w">·</span>=<span class="w">·</span>{Xml::ElementType::Comment,<span class="w">·</span>Utils::ToStringView(lastPtr,<span class="w">·</span>ptr)};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[160]</span><span><span class="w"> →  →  →  →  →  →  → </span>lastPtr<span class="w">·</span>=<span class="w">·</span>ptr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[161]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">return</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[162]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[163]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[164]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::ElementName:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[165]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[166]</span><span><span class="w"> →  →  →  →  →  →  → </span>elementName.second<span class="w">·</span>=<span class="w">·</span>oldPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[167]</span><span><span class="w"> →  →  →  →  →  →  → </span>elementType<span class="w">·</span>=<span class="w">·</span>ElementType::Open;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[168]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(newState<span class="w">·</span>==<span class="w">·</span>State::AttributeSpace)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[169]</span><span><span class="w"> →  →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[170]</span><span><span class="w"> →  →  →  →  →  →  →  → </span>attributes<span class="w">·</span>=<span class="w">·</span>{ptr,<span class="w">·</span><span class="k">nullptr</span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[171]</span><span><span class="w"> →  →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[172]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[173]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[174]</span><span><span class="w"> →  →  →  →  →  → </span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[175]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::ElementEndName:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[176]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[177]</span><span><span class="w"> →  →  →  →  →  →  → </span>elementName.second<span class="w">·</span>=<span class="w">·</span>oldPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[178]</span><span><span class="w"> →  →  →  →  →  →  → </span>elementType<span class="w">·</span>=<span class="w">·</span>ElementType::Close;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[179]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[180]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[181]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[182]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::AttributeName:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[183]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[184]</span><span><span class="w"> →  →  →  →  →  →  → </span>attributeName.second<span class="w">·</span>=<span class="w">·</span>oldPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[185]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[186]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[187]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[188]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">default</span>:;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[189]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[190]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[191]</span><span><span class="w"> →  →  →  →  → </span><span class="k">switch</span><span class="w">·</span>(newState)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[192]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[193]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::AttributeEnd:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[194]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[195]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">auto</span><span class="w">·</span>tmp<span class="w">·</span>=<span class="w">·</span>attributeValueStart;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[196]</span><span><span class="w"> →  →  →  →  →  →  → </span>manager-&gt;Push(Utils::ToStringView(attributeName),<span class="w">·</span>Utils::ToStringView(++tmp,<span class="w">·</span>oldPtr),<span class="w">·</span>elementStack.size());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[197]</span><span><span class="w"> →  →  →  →  →  →  → </span>attributes.second<span class="w">·</span>=<span class="w">·</span>ptr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[198]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[199]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[200]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[201]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::ElementName:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[202]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::ElementEndName:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[203]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[204]</span><span><span class="w"> →  →  →  →  →  →  → </span>elementName.first<span class="w">·</span>=<span class="w">·</span>oldPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[205]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[206]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[207]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[208]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::Bang:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[209]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[210]</span><span><span class="w"> →  →  →  →  →  →  → </span>elementName.first<span class="w">·</span>=<span class="w">·</span><span class="k">nullptr</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[211]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[212]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[213]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[214]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::EmptyElement:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[215]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[216]</span><span><span class="w"> →  →  →  →  →  →  → </span>elementType<span class="w">·</span>=<span class="w">·</span>ElementType::Empty;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[217]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[218]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[219]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[220]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::AttributeName:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[221]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[222]</span><span><span class="w"> →  →  →  →  →  →  → </span>attributeName.first<span class="w">·</span>=<span class="w">·</span>oldPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[223]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[224]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[225]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[226]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::AttributeValue:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[227]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[228]</span><span><span class="w"> →  →  →  →  →  →  → </span>attributeValueStart<span class="w">·</span>=<span class="w">·</span>oldPtr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[229]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[230]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[231]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[232]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">case</span><span class="w">·</span>Xml::State::Start:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[233]</span><span><span class="w"> →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[234]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="c">//·bug:·white·space·at·end·is·not·in·outerXml...</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[235]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="c">//·don&apos;t·yield·for·!doctype·atm</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[236]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="c">//·just·set·a·member·value·for·now?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[237]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(elementName.first<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span>)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[238]</span><span><span class="w"> →  →  →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[239]</span><span><span class="w"> →  →  →  →  →  →  →  → </span>ProcessElement(ptr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[240]</span><span><span class="w"> →  →  →  →  →  →  →  → </span>lastPtr<span class="w">·</span>=<span class="w">·</span>ptr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[241]</span><span><span class="w"> →  →  →  →  →  →  →  → </span><span class="k">return</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[242]</span><span><span class="w"> →  →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[243]</span><span><span class="w"> →  →  →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[244]</span><span><span class="w"> →  →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[245]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[246]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">default</span>:;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[247]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[248]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[249]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[250]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[251]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="252"><span class="line">[252]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>ProcessElement(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>outerXmlEnd)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[253]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[254]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(contentClosed)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[255]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[256]</span><span><span class="w"> →  →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(<span class="s">&quot;Extra·content·at·document·end&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[257]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[258]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[259]</span><span><span class="w"> →  →  → </span><span class="k">auto</span><span class="w">·</span>qName<span class="w">·</span>=<span class="w">·</span>Utils::ToStringView(elementName);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[260]</span><span><span class="w"> →  →  → </span><span class="k">auto</span><span class="w">·</span>[name,<span class="w">·</span>nameSpace]<span class="w">·</span>=<span class="w">·</span>manager-&gt;Normalise(qName);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[261]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[262]</span><span><span class="w"> →  →  → </span>element<span class="w">·</span>=<span class="w">·</span>{qName,<span class="w">·</span>name,<span class="w">·</span>nameSpace,<span class="w">·</span>elementType};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[263]</span><span><span class="w"> →  →  → </span>element.outerXml<span class="w">·</span>=<span class="w">·</span>Utils::ToStringView(lastPtr,<span class="w">·</span>outerXmlEnd);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[264]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[265]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(attributes.first<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span><span class="w">·</span>&amp;&amp;<span class="w">·</span>attributes.second<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span><span class="w">·</span>&amp;&amp;<span class="w">·</span>element.type<span class="w">·</span>!=<span class="w">·</span>ElementType::Close)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[266]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[267]</span><span><span class="w"> →  →  →  → </span>element.attributes<span class="w">·</span>=<span class="w">·</span>{Utils::ToStringView(attributes),<span class="w">·</span>manager};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[268]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[269]</span><span><span class="w"> →  →  → </span><span class="k">else</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[270]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[271]</span><span><span class="w"> →  →  →  → </span>element.attributes<span class="w">·</span>=<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[272]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[273]</span><span><span class="w"> →  →  → </span>attributes<span class="w">·</span>=<span class="w">·</span>{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[274]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[275]</span><span><span class="w"> →  →  → </span><span class="k">switch</span><span class="w">·</span>(element.type)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[276]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[277]</span><span><span class="w"> →  →  →  → </span><span class="k">case</span><span class="w">·</span>ElementType::Open:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[278]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[279]</span><span><span class="w"> →  →  →  →  → </span>elementStack.push(element.qName);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[280]</span><span><span class="w"> →  →  →  →  → </span>element.depth<span class="w">·</span>=<span class="w">·</span>elementStack.size();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[281]</span><span><span class="w"> →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[282]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[283]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[284]</span><span><span class="w"> →  →  →  → </span><span class="k">case</span><span class="w">·</span>ElementType::Empty:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[285]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[286]</span><span><span class="w"> →  →  →  →  → </span>element.depth<span class="w">·</span>=<span class="w">·</span>elementStack.size()<span class="w">·</span>+<span class="w">·</span>1;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[287]</span><span><span class="w"> →  →  →  →  → </span>manager-&gt;Pop(elementStack.size());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[288]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(element.depth<span class="w">·</span>==<span class="w">·</span>1)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[289]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[290]</span><span><span class="w"> →  →  →  →  →  → </span>contentClosed<span class="w">·</span>=<span class="w">·</span><span class="k">true</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[291]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[292]</span><span><span class="w"> →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[293]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[294]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[295]</span><span><span class="w"> →  →  →  → </span><span class="k">case</span><span class="w">·</span>ElementType::Close:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[296]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[297]</span><span><span class="w"> →  →  →  →  → </span>element.depth<span class="w">·</span>=<span class="w">·</span>elementStack.size();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[298]</span><span><span class="w"> →  →  →  →  → </span><span class="k">const</span><span class="w">·</span><span class="k">auto</span><span class="w">·</span>&amp;<span class="w">·</span>top<span class="w">·</span>=<span class="w">·</span>elementStack.top();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[299]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(element.qName<span class="w">·</span>!=<span class="w">·</span>top)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[300]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[301]</span><span><span class="w"> →  →  →  →  →  → </span>std::<span class="t">ostringstream</span><span class="w">·</span>s;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[302]</span><span><span class="w"> →  →  →  →  →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;Element·mismatch:·&quot;</span><span class="w">··</span>&lt;&lt;<span class="w">·</span>element.qName<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·!=·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>top;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[303]</span><span><span class="w"> →  →  →  →  →  → </span><span class="k">throw</span><span class="w">·</span>std::runtime_error(s.str());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[304]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[305]</span><span><span class="w"> →  →  →  →  → </span><span class="k">if</span><span class="w">·</span>(element.depth<span class="w">·</span>==<span class="w">·</span>1)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[306]</span><span><span class="w"> →  →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[307]</span><span><span class="w"> →  →  →  →  →  → </span>contentClosed<span class="w">·</span>=<span class="w">·</span><span class="k">true</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[308]</span><span><span class="w"> →  →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[309]</span><span><span class="w"> →  →  →  →  → </span>elementStack.pop();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[310]</span><span><span class="w"> →  →  →  →  → </span>manager-&gt;Pop(elementStack.size());</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[311]</span><span><span class="w"> →  →  →  →  → </span><span class="k">break</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[312]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[313]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[314]</span><span><span class="w"> →  →  →  → </span><span class="k">default</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[315]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[316]</span><span><span class="w"> →  →  →  →  → </span><span class="k">throw</span><span class="w">·</span>std::logic_error(<span class="s">&quot;Unexpected·enumeration·value&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[317]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[318]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="319"><span class="line">[319]</span></a><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[320]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[321]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[322]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Holder</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[323]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[324]</span><span><span class="w"> →  → </span>std::<span class="t">string_view</span><span class="w">·</span><span class="k">const</span><span class="w">·</span>value;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[325]</span><span><span class="w"> →  → </span>NameSpaceManager<span class="w">·</span>manager;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[326]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[327]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="328"><span class="line">[328]</span></a><span><span class="w"> →  → </span>Holder(std::<span class="t">string_view</span><span class="w">·</span>value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[329]</span><span><span class="w"> →  →  → </span>:<span class="w">·</span>value(value)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[330]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[331]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="332"><span class="line">[332]</span></a><span><span class="w"> →  → </span>Iterator<span class="w">·</span>begin()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[333]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[334]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>{value.data(),<span class="w">·</span>value.size()<span class="w">·</span>+<span class="w">·</span>value.data(),<span class="w">·</span>&amp;manager};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[335]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[336]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="337"><span class="line">[337]</span></a><span><span class="w"> →  → </span>Iterator<span class="w">·</span>end()<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[338]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[339]</span><span><span class="w"> →  →  → </span>(<span class="k">void</span>)<span class="k">this</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[340]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>Iterator{};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[341]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[342]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="343"><span class="line">[343]</span></a><span><span class="w"> →  → </span><span class="k">const</span><span class="w">·</span>NameSpaceManager<span class="w">·</span>&amp;<span class="w">·</span>Manager()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[344]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[345]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>manager;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="346"><span class="line">[346]</span></a><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[347]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[348]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:2.770083%"></div>
+		<div class="" style="height:8.310249%"></div>
+		<div class="cov" style="height:1.108033%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:3.601108%"></div>
+		<div class="cov" style="height:1.939058%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:1.108033%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.831025%"></div>
+		<div class="cov" style="height:1.108033%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="ncov" style="height:0.277008%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:1.108033%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.831025%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:1.662050%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.831025%"></div>
+		<div class="cov" style="height:1.108033%"></div>
+		<div class="" style="height:1.385042%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:1.939058%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:1.939058%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.831025%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="ncov" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:1.108033%"></div>
+		<div class="ncov" style="height:0.277008%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:2.216067%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.831025%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:0.277008%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="cov" style="height:0.554017%"></div>
+		<div class="" style="height:0.554017%"></div>
+		<div class="cov" style="height:1.108033%"></div>
+		<div class="" style="height:0.277008%"></div>
+		<div class="" style="height:0.831025%"></div>
+	</div>
+
+</body>
+</html>

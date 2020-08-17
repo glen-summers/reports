@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Win/Uuid.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Win</a> - <span>Uuid.h</span>
+					<span>(source / <a href="Uuid.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">18</td>
+				<td class="coverageValue">18</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">5</td>
+				<td class="coverageValue">5</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/ComErrorCheck.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/formatter.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span><span class="d">#include·&lt;rpc.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span><span class="d">#pragma·comment(lib,·&quot;Rpcrt4.lib&quot;)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Win::Util</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>Uuid</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> →  → </span>UUID<span class="w">·</span><span class="k">const</span><span class="w">·</span>id;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="15"><span class="line">[15]</span></a><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="w"> →  → </span><span class="k">explicit</span><span class="w">·</span>Uuid(<span class="k">const</span><span class="w">·</span>UUID<span class="w">·</span>&amp;<span class="w">·</span>id)<span class="w">·</span>:id(id)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> →  → </span>{}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[18]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="19"><span class="line">[19]</span></a><span><span class="w"> →  → </span><span class="k">static</span><span class="w">·</span>Uuid<span class="w">·</span>CreateRandom()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[20]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  →  → </span>UUID<span class="w">·</span>uuid;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  →  → </span>CheckHr(::UuidCreate(&amp;uuid),<span class="w">·</span><span class="s">&quot;UuidCreate&quot;</span>);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[23]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>Uuid{uuid};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[24]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[25]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> → </span><span class="k">private</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="27"><span class="line">[27]</span></a><span><span class="w"> →  → </span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>WriteTo(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>s)<span class="w">·</span><span class="k">const</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[29]</span><span><span class="w"> →  →  → </span>Formatter::Format(s,<span class="w">·</span><span class="s">&quot;{{{0:%08X}-{1:%04X}-{2:%04X}-{3:%02X}{4:%02X}-{5:%02X}{6:%02X}{7:%02X}{8:%02X}{9:%02X}{10:%02X}}}&quot;</span>,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> →  →  →  → </span>id.Data1,<span class="w">·</span>id.Data2,<span class="w">·</span>id.Data3,</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> →  →  →  → </span>id.Data4[0],<span class="w">·</span>id.Data4[1],<span class="w">·</span>id.Data4[2],<span class="w">·</span>id.Data4[3],<span class="w">·</span>id.Data4[4],<span class="w">·</span>id.Data4[5],<span class="w">·</span>id.Data4[6],<span class="w">·</span>id.Data4[7]);<span class="w">·</span><span class="c">//·NOLINT(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[32]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>s;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[34]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  → </span><span class="k">friend</span><span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span>&lt;&lt;(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>s,<span class="w">·</span><span class="k">const</span><span class="w">·</span>Uuid<span class="w">·</span>&amp;<span class="w">·</span>iid);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="38"><span class="line">[38]</span></a><span><span class="w"> → </span><span class="k">inline</span><span class="w">·</span>std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span><span class="k">operator</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>(std::<span class="t">ostream</span><span class="w">·</span>&amp;<span class="w">·</span>s,<span class="w">·</span><span class="k">const</span><span class="w">·</span>Uuid<span class="w">·</span>&amp;<span class="w">·</span>iid)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[39]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[40]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>iid.WriteTo(s);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[42]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="43"><span class="line">[43]</span></a><span><span class="w"> → </span><span class="k">inline</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>to_string(<span class="k">const</span><span class="w">·</span>Uuid<span class="w">·</span>&amp;<span class="w">·</span>id)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[44]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> →  → </span>std::<span class="t">ostringstream</span><span class="w">·</span>s;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> →  → </span>s<span class="w">·</span>&lt;&lt;<span class="w">·</span>id;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> →  → </span><span class="k">return</span><span class="w">·</span>s.str();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[48]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[49]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:16.129032%"></div>
+		<div class="" style="height:24.193548%"></div>
+		<div class="cov" style="height:3.225806%"></div>
+		<div class="" style="height:3.225806%"></div>
+		<div class="cov" style="height:1.612903%"></div>
+		<div class="" style="height:1.612903%"></div>
+		<div class="cov" style="height:4.838710%"></div>
+		<div class="" style="height:4.838710%"></div>
+		<div class="cov" style="height:3.225806%"></div>
+		<div class="" style="height:3.225806%"></div>
+		<div class="cov" style="height:3.225806%"></div>
+		<div class="" style="height:8.064516%"></div>
+		<div class="cov" style="height:4.838710%"></div>
+		<div class="" style="height:3.225806%"></div>
+		<div class="cov" style="height:8.064516%"></div>
+		<div class="" style="height:1.612903%"></div>
+		<div class="" style="height:4.838710%"></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/vectorstreambuffer.h</title>
+	<link rel="stylesheet" type="text/css" href="../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../index.html">TopLevel</a> - <a href="index.html">include/GLib</a> - <span>vectorstreambuffer.h</span>
+					<span>(source / <a href="vectorstreambuffer.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">16</td>
+				<td class="coverageValue">17</td>
+				<td class="green coverageValue">94&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">4</td>
+				<td class="coverageValue">4</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="d">#include·&lt;streambuf&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span><span class="d">#include·&lt;vector&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Util</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span><span class="w"> → </span><span class="c">//·convert·to·circular·buffer</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span><span class="w"> → </span><span class="k">template</span><span class="w">·</span>&lt;<span class="k">typename</span><span class="w">·</span>T,<span class="w">·</span><span class="t">size_t</span><span class="w">·</span>DefaultCapacity&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span><span class="w"> → </span><span class="k">class</span><span class="w">·</span>VectorStreamBuffer<span class="w">·</span>:<span class="w">·</span><span class="k">public</span><span class="w">·</span>std::basic_streambuf&lt;T&gt;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>Base<span class="w">·</span>=<span class="w">·</span>std::basic_streambuf&lt;T&gt;;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span>BufferType<span class="w">·</span>=<span class="w">·</span>std::<span class="t">vector</span>&lt;T&gt;;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span><span class="w"> →  → </span>BufferType<span class="w">·</span>buffer;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[15]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="w"> → </span><span class="k">public</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[17]</span><span><span class="w"> →  → </span><span class="k">using</span><span class="w">·</span><span class="k">typename</span><span class="w">·</span>Base::int_type;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="18"><span class="line">[18]</span></a><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[19]</span><span><span class="w"> →  → </span>VectorStreamBuffer(<span class="t">size_t</span><span class="w">·</span>initialCapacity<span class="w">·</span>=<span class="w">·</span>DefaultCapacity)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[20]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  →  → </span>buffer.reserve(initialCapacity);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[23]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="24"><span class="line">[24]</span></a><span><span class="w"> →  → </span>std::basic_string_view&lt;T&gt;<span class="w">·</span>Get()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>{buffer.data(),<span class="w">·</span>buffer.size()};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[27]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[28]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="29"><span class="line">[29]</span></a><span><span class="w"> →  → </span><span class="k">void</span><span class="w">·</span>Reset()</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> →  →  → </span><span class="c">//·decay·size·if·large·and·not·often·used</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[32]</span><span><span class="w"> →  →  → </span><span class="c">//·poss·use·list·of·chunks·that·can·be·shared?</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> →  →  → </span>buffer.clear();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> →  →  → </span>buffer.reserve(DefaultCapacity);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[36]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span><span class="w"> → </span><span class="k">protected</span>:</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="38"><span class="line">[38]</span></a><span><span class="w"> →  → </span>int_type<span class="w">·</span>overflow(int_type<span class="w">·</span>c)<span class="w">·</span><span class="k">override</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[39]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[40]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(Base::traits_type::eq_int_type(c,<span class="w">·</span>Base::traits_type::eof()))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[42]</span><span><span class="w"> →  →  →  → </span><span class="k">return</span><span class="w">·</span>Base::traits_type::not_eof(c);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[43]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[44]</span><span><span class="w"> →  →  → </span>buffer.push_back(Base::traits_type::to_char_type(c));</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>c;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> → </span>};</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[48]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:16.393442%"></div>
+		<div class="" style="height:29.508196%"></div>
+		<div class="cov" style="height:6.557377%"></div>
+		<div class="" style="height:3.278688%"></div>
+		<div class="cov" style="height:4.918033%"></div>
+		<div class="" style="height:3.278688%"></div>
+		<div class="cov" style="height:1.639344%"></div>
+		<div class="" style="height:3.278688%"></div>
+		<div class="cov" style="height:4.918033%"></div>
+		<div class="" style="height:4.918033%"></div>
+		<div class="cov" style="height:3.278688%"></div>
+		<div class="" style="height:1.639344%"></div>
+		<div class="ncov" style="height:1.639344%"></div>
+		<div class="" style="height:1.639344%"></div>
+		<div class="cov" style="height:4.918033%"></div>
+		<div class="" style="height:3.278688%"></div>
+		<div class="" style="height:4.918033%"></div>
+	</div>
+
+</body>
+</html>

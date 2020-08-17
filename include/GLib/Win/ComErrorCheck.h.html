@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Coverage - include/GLib/Win/ComErrorCheck.h</title>
+	<link rel="stylesheet" type="text/css" href="../../../coverage.css" />
+</head>
+<body>
+	<div style="padding-right:4px;">
+		<p class="title">GLib - coverage report</p>
+		<hr />
+
+		<table class="info">
+			<tr>
+				<td style="width:15%" class="headerItem">Current view:</td>
+				<td style="width:35%" class="headerValue">
+					<a href="../../../index.html">TopLevel</a> - <a href="index.html">include/GLib/Win</a> - <span>ComErrorCheck.h</span>
+					<span>(source / <a href="ComErrorCheck.h.functions.html">functions</a>)</span>
+				</td>
+				<td style="width:20%"></td>
+				<td style="width:10%" class="headerItem">Hit</td>
+				<td style="width:10%" class="headerItem">Total</td>
+				<td style="width:10%" class="headerItem">Coverage</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Test:</td>
+				<td class="headerValue">D:\a\GLibCopy\GLibCopy\out\x64\Debug\Tests.exe</td>
+				<td class="headerItem">Lines:</td>
+				<td class="coverageValue">30</td>
+				<td class="coverageValue">32</td>
+				<td class="green coverageValue">93&nbsp;%</td>
+			</tr>
+			<tr>
+				<td class="headerItem">Time:</td>
+				<td class="headerValue">17 Aug 2020, 08:59:45 (+0000)</td>
+				<td class="headerItem">Functions:</td>
+				<td class="coverageValue">6</td>
+				<td class="coverageValue">6</td>
+				<td class="green coverageValue">100&nbsp;%</td>
+			</tr>
+		</table>
+		<hr />
+
+		<table class="source">
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 1]</span><span><span class="d">#pragma·once</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 2]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 3]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/ComException.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 4]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/FormatErrorMessage.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 5]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 6]</span><span><span class="d">#ifdef·_DEBUG·</span><span class="c">//·||·defined(GLIB_DEBUG)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 7]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/Win</span><span class="d">/DebugStream.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 8]</span><span><span class="d">#endif</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[ 9]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[10]</span><span><span class="d">#include·&lt;GLib</span><span class="d">/scope.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[11]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[12]</span><span><span class="d">#include·&lt;sstream&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[13]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[14]</span><span><span class="d">#include·&lt;OleAuto.h&gt;</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[15]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[16]</span><span><span class="k">namespace</span><span class="w">·</span>GLib::Win</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[17]</span><span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[18]</span><span><span class="w"> → </span><span class="k">namespace</span><span class="w">·</span>Detail</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[19]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="20"><span class="line">[20]</span></a><span><span class="w"> →  → </span><span class="k">inline</span><span class="w">·</span>std::<span class="t">string</span><span class="w">·</span>FormatErrorInfo(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message,<span class="w">·</span>HRESULT<span class="w">·</span>hr)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[21]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[22]</span><span><span class="w"> →  →  → </span><span class="k">bool</span><span class="w">·</span>hasMessage<span class="w">·</span>=<span class="w">·</span><span class="k">false</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[23]</span><span><span class="w"> →  →  → </span>std::<span class="t">ostringstream</span><span class="w">·</span>stm;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[24]</span><span><span class="w"> →  →  → </span>stm<span class="w">·</span>&lt;&lt;<span class="w">·</span>message<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·:·&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[25]</span><span><span class="w"> →  →  → </span>IErrorInfo*<span class="w">·</span>pErrorInfo;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[26]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(::GetErrorInfo(0,<span class="w">·</span>&amp;pErrorInfo)<span class="w">·</span>==<span class="w">·</span>S_OK)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[27]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[28]</span><span><span class="w"> →  →  →  → </span>BSTR<span class="w">·</span>description<span class="w">·</span>=<span class="w">·</span><span class="k">nullptr</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><a id="29"><span class="line">[29]</span></a><span><span class="w"> →  →  →  → </span>pErrorInfo-&gt;GetDescription(&amp;description);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[30]</span><span><span class="w"> →  →  →  → </span>SCOPE(_,<span class="w">·</span>[=]<span class="w">·</span>()<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[31]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[32]</span><span><span class="w"> →  →  →  →  → </span>::SysFreeString(description);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[33]</span><span><span class="w"> →  →  →  →  → </span>pErrorInfo-&gt;Release();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[34]</span><span><span class="w"> →  →  →  → </span>});</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[35]</span><span><span class="w"> →  →  →  → </span>hasMessage<span class="w">·</span>=<span class="w">·</span>description<span class="w">·</span>!=<span class="w">·</span><span class="k">nullptr</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[36]</span><span><span class="w"> →  →  →  → </span><span class="k">if</span><span class="w">·</span>(hasMessage)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[37]</span><span><span class="w"> →  →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[38]</span><span><span class="w"> →  →  →  →  → </span>stm<span class="w">·</span>&lt;&lt;<span class="w">·</span>Cvt::w2a(description);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[39]</span><span><span class="w"> →  →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[40]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[41]</span><span><span class="w"> →  →  → </span><span class="k">if</span><span class="w">·</span>(!hasMessage)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[42]</span><span><span class="w"> →  →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[43]</span><span><span class="w"> →  →  →  → </span>Util::FormatErrorMessage(stm,<span class="w">·</span>hr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[44]</span><span><span class="w"> →  →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[45]</span><span><span class="w"> →  →  → </span>stm<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;·(&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>std::hex<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::uppercase<span class="w">·</span>&lt;&lt;<span class="w">·</span>hr<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;)&quot;</span>;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[46]</span><span><span class="w"> →  →  → </span><span class="k">return</span><span class="w">·</span>stm.str();</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[47]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[48]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="49"><span class="line">[49]</span></a><span><span class="w"> →  → </span>__declspec(noreturn)<span class="w">·</span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>Throw(<span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message,<span class="w">·</span>HRESULT<span class="w">·</span>hr)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[50]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[51]</span><span><span class="w"> →  →  → </span>std::<span class="t">string</span><span class="w">·</span>formattedMessage<span class="w">·</span>=<span class="w">·</span>FormatErrorInfo(message,<span class="w">·</span>hr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[52]</span><span><span class="d">#ifdef·_DEBUG·</span><span class="c">//·||·defined(GLIB_DEBUG)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[53]</span><span><span class="w"> →  →  → </span>Debug::Stream()<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;ComException·:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>formattedMessage<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[54]</span><span><span class="d">#endif</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[55]</span><span><span class="w"> →  →  → </span><span class="k">throw</span><span class="w">·</span>ComException(formattedMessage,<span class="w">·</span>hr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[56]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[57]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[58]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="59"><span class="line">[59]</span></a><span><span class="w"> → </span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>CheckHr(HRESULT<span class="w">·</span>hr,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[60]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[61]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(FAILED(hr))</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[62]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[63]</span><span><span class="w"> →  →  → </span>Detail::Throw(message,<span class="w">·</span>hr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[64]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[65]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[66]</span><span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><a id="67"><span class="line">[67]</span></a><span><span class="w"> → </span><span class="k">inline</span><span class="w">·</span><span class="k">void</span><span class="w">·</span>WarnHr(HRESULT<span class="w">·</span>hr,<span class="w">·</span><span class="k">const</span><span class="w">·</span><span class="k">char</span><span class="w">·</span>*<span class="w">·</span>message)<span class="w">·</span><span class="k">noexcept</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[68]</span><span><span class="w"> → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[69]</span><span><span class="d">#ifdef·_DEBUG·</span><span class="c">//·||·defined(GLIB_DEBUG)</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[70]</span><span><span class="w"> →  → </span><span class="k">bool</span><span class="w">·</span>result<span class="w">·</span>=<span class="w">·</span>SUCCEEDED(hr);</span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[71]</span><span><span class="w"> →  → </span><span class="k">if</span><span class="w">·</span>(!result)</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[72]</span><span><span class="w"> →  → </span>{</span></code></pre>
+				</td>
+			</tr>
+			<tr class="ncov">
+				<td>
+					<pre><code><span class="line">[73]</span><span><span class="w"> →  →  → </span>Debug::Stream()<span class="w">·</span>&lt;&lt;<span class="w">·</span><span class="s">&quot;ComWarning·:·&quot;</span><span class="w">·</span>&lt;&lt;<span class="w">·</span>Detail::FormatErrorInfo(message,<span class="w">·</span>hr)<span class="w">·</span>&lt;&lt;<span class="w">·</span>std::endl;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[74]</span><span><span class="w"> →  → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[75]</span><span><span class="d">#else</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[76]</span><span><span class="w"> →  →  → </span>(<span class="k">void</span>)hr;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[77]</span><span><span class="w"> →  →  → </span>(<span class="k">void</span>)message;</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[78]</span><span><span class="d">#endif</span></span></code></pre>
+				</td>
+			</tr>
+			<tr class="cov">
+				<td>
+					<pre><code><span class="line">[79]</span><span><span class="w"> → </span>}</span></code></pre>
+				</td>
+			</tr>
+			<tr class="">
+				<td>
+					<pre><code><span class="line">[80]</span><span>}</span></code></pre>
+				</td>
+			</tr>
+		</table>
+
+		<hr />
+		<p class="footer">Generated by <a href="https://github.com/glen-summers/GLib">GLib</a></p>
+	</div>
+
+	<div class="edge">
+		<div class="" style="height:10.752688%"></div>
+		<div class="" style="height:21.505377%"></div>
+		<div class="cov" style="height:4.301075%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:3.225807%"></div>
+		<div class="" style="height:3.225807%"></div>
+		<div class="cov" style="height:3.225807%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:2.150538%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:3.225807%"></div>
+		<div class="" style="height:2.150538%"></div>
+		<div class="cov" style="height:2.150538%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="ncov" style="height:1.075269%"></div>
+		<div class="" style="height:3.225807%"></div>
+		<div class="cov" style="height:2.150538%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:2.150538%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="cov" style="height:2.150538%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="ncov" style="height:1.075269%"></div>
+		<div class="" style="height:5.376344%"></div>
+		<div class="cov" style="height:1.075269%"></div>
+		<div class="" style="height:1.075269%"></div>
+		<div class="" style="height:3.225807%"></div>
+	</div>
+
+</body>
+</html>
